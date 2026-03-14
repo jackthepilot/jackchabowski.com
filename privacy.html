@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Jack Chabowski</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--s1:#111;--s2:#181818;--red:#E8322A;--white:#fff;--text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.14);}
+.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;flex-shrink:0;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center;margin-left:auto;}
+.nav-links a{font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
+.nav-links a:hover{color:#fff;}
+.ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
+.ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
+.ham.open .bar1{transform:translateY(8px) rotate(45deg);}
+.ham.open .bar2{opacity:0;transform:scaleX(0);}
+.ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
+@media(min-width:861px){.ham{display:none;}}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
+.mob.open{display:flex;}
+.mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
+.mob a:last-child{border-bottom:none;}
+.mob a:hover{color:#fff;background:rgba(255,255,255,.05);}
+.content{max-width:780px;margin:0 auto;padding:120px 2.5rem 5rem;}
+.content h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:.5rem;}
+.content .updated{font-size:.75rem;color:var(--muted);margin-bottom:3rem;text-transform:uppercase;letter-spacing:.1em;}
+.content h2{font-size:1.15rem;font-weight:700;color:#fff;margin:2.5rem 0 .8rem;}
+.content p{font-size:.92rem;line-height:1.8;color:var(--muted);margin-bottom:1rem;}
+.content ul{padding-left:1.5rem;margin-bottom:1rem;}
+.content ul li{font-size:.92rem;line-height:1.8;color:var(--muted);margin-bottom:.4rem;}
+.content a{color:var(--red);text-decoration:none;}
+.content a:hover{text-decoration:underline;}
+footer{background:var(--s1);padding:2rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
+.fb{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;}
+.ft-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+.ft-copy a{color:rgba(255,255,255,.35);text-decoration:none;}
+.ft-copy a:hover{color:var(--red);}
+@media(max-width:860px){nav{padding:0 1.2rem;}.nav-links{display:none;}.content{padding:100px 1.2rem 3rem;}footer{padding:1.5rem 1.2rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Jack Chabowski</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
+    <li><a href="production.html">Production</a></li>
+    <li><a href="composing.html">Composing</a></li>
+  </ul>
+  <button class="ham" id="ham" aria-label="Open menu">
+    <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
+  </button>
+</nav>
+<div class="mob" id="mob">
+  <a href="index.html">Home</a>
+  <a href="mixing-mastering.html">Mixing / Mastering</a>
+  <a href="production.html">Production</a>
+  <a href="composing.html">Composing</a>
+  <a href="mailto:jackchabowski@gmail.com">Contact</a>
+</div>
+
+<div class="content">
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last updated: <span id="yr"></span></div>
+
+  <p>Jack Chabowski Music Entertainment ("we", "us", or "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you visit jackchabowski.com or engage our services.</p>
+
+  <h2>1. Information We Collect</h2>
+  <p>We may collect the following types of information:</p>
+  <ul>
+    <li>Contact information such as your name and email address when you reach out to us directly</li>
+    <li>Project information and audio files you share with us in the course of a service engagement</li>
+    <li>Basic usage data collected automatically when you visit the website, such as browser type and pages viewed</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <p>We use your information to:</p>
+  <ul>
+    <li>Respond to your inquiries and communicate about your project</li>
+    <li>Deliver the services you have requested</li>
+    <li>Improve the website and services we provide</li>
+    <li>Meet any legal or contractual obligations</li>
+  </ul>
+
+  <h2>3. Sharing Your Information</h2>
+  <p>We do not sell, trade, or rent your personal information to third parties. We may share information with trusted service providers who assist us in operating the website or delivering services, provided they agree to keep that information confidential. We may also disclose information if required by law.</p>
+
+  <h2>4. Audio Files and Project Materials</h2>
+  <p>Any audio files, stems, lyrics, or other creative materials you share with us are treated as strictly confidential. They are used solely for the purpose of completing your project and will not be shared, distributed, or used in any other way without your explicit written consent.</p>
+
+  <h2>5. Data Retention</h2>
+  <p>We retain your personal information and project materials for as long as necessary to fulfill the purposes outlined in this policy, or as required by applicable law. You may request deletion of your data at any time by contacting us.</p>
+
+  <h2>6. Cookies</h2>
+  <p>This website may use cookies to improve your browsing experience. Cookies are small text files stored on your device that help us understand how visitors use our site. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.</p>
+
+  <h2>7. Your Rights</h2>
+  <p>You have the right to request access to, correction of, or deletion of any personal information we hold about you. To exercise these rights, please contact us at the email address below.</p>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated date. Continued use of our website or services after changes are posted constitutes your acceptance of the revised policy.</p>
+
+  <h2>9. Contact</h2>
+  <p>If you have any questions about this Privacy Policy, please contact: <a href="mailto:jackchabowski@gmail.com">jackchabowski@gmail.com</a></p>
+</div>
+
+<footer>
+  <div class="fb">
+    <div class="ft-copy">&copy; <span id="yr2"></span> Jack Chabowski &middot; Music Entertainment &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></div>
+    <div><a href="index.html" style="font-size:.65rem;color:rgba(255,255,255,.35);text-decoration:none;">&larr; Back to Home</a></div>
+  </div>
+</footer>
+
+<script>
+var y = new Date().getFullYear();
+document.getElementById('yr').textContent = y;
+document.getElementById('yr2').textContent = y;
+var ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',function(){ham.classList.toggle('open');mob.classList.toggle('open');});
+mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');});});
+</script>
+</body>
+</html>

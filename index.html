@@ -3,59 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jack Chabowski — Music Producer & Artist</title>
+<title>Jack Chabowski, Music Producer &amp; Artist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0A0A0A;--s1:#111111;--s2:#181818;
-  --white:#FFFFFF;--red:#E8322A;
-  --text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);
-}
+:root{--bg:#0A0A0A;--s1:#111;--s2:#181818;--red:#E8322A;--white:#fff;--text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;overflow-x:hidden;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.13);}
-.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;}
-.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.14);}
+.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;flex-shrink:0;}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center;margin-left:auto;}
+.nav-links a{font-size:18px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
 .nav-links a:hover,.nav-links a.active{color:#fff;}
-.nav-cta{font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;}
+.nav-cta{margin-left:2.2rem;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
 .nav-cta:hover{background:var(--red);color:#fff;}
 
-/* HAMBURGER — 3 lines, hidden on desktop */
-.ham{display:none;flex-direction:column;justify-content:center;gap:6px;width:40px;height:40px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+.ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
 .ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
 .ham.open .bar1{transform:translateY(8px) rotate(45deg);}
 .ham.open .bar2{opacity:0;transform:scaleX(0);}
 .ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
+@media(min-width:861px){.ham{display:none;}}
 
-/* MOBILE DRAWER */
 .mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
 .mob.open{display:flex;}
-.mob a{font-size:1.15rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.15rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
+.mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
 .mob a:last-child{border-bottom:none;}
 .mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:68px 2.5rem 80px;position:relative;}
 .hero-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
 .hero-label::before{content:'';width:1.5rem;height:1px;background:var(--red);}
 .hero-title{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.5rem;max-width:700px;}
 .hero-title span{color:var(--red);}
 .hero-desc{font-size:1rem;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:2.5rem;}
-.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.8rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;width:fit-content;}
+.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.8rem 1.8rem;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;width:fit-content;}
 .btn-red:hover{background:#c42820;}
 
-/* marquee */
 .marquee{position:absolute;bottom:0;left:0;right:0;background:var(--s1);border-top:1px solid var(--border);overflow:hidden;padding:.6rem 0;}
 .marquee-track{display:flex;width:max-content;animation:ticker 24s linear infinite;}
 .m-item{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);padding:0 1.8rem;border-right:1px solid rgba(232,50,42,.18);white-space:nowrap;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTIONS */
 .sec{padding:5rem 2.5rem;}
 .sec.s1{background:var(--s1);}
 .sec.s2{background:var(--s2);}
@@ -64,7 +55,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .sec-title{font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:2.5rem;}
 .sec-title span{color:var(--red);}
 
-/* SPOTIFY */
 .spotify-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:start;}
 .spot-name{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:.8rem;line-height:1.1;}
 .spot-sub{font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
@@ -72,7 +62,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border);padding:.4rem .9rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:all .18s;}
 .pill:hover{background:var(--red);border-color:var(--red);color:#fff;}
 
-/* PLATFORMS */
 .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2.5rem;}
 .plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2.2rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;}
 .plat::after{content:'';position:absolute;inset:0;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;z-index:0;}
@@ -81,15 +70,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .plat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .18s;text-align:center;}
 .plat:hover .plat-lbl{color:#fff;}
 
-/* YOUTUBE */
 .yt-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start;}
 .yt-frame{aspect-ratio:16/9;overflow:hidden;}
 .yt-frame iframe{width:100%;height:100%;display:block;}
 .yt-desc{font-size:.9rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
-.yt-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.75rem 1.6rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;}
+.yt-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.75rem 1.6rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;}
 .yt-btn:hover{background:#c42820;}
 
-/* SERVICES */
 .svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
 .svc{padding:2.5rem 2rem;background:var(--s1);text-decoration:none;color:var(--text);display:block;border-top:2px solid transparent;transition:all .2s;}
 .svc:hover{background:var(--s2);border-top-color:var(--red);}
@@ -99,36 +86,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .arr{font-size:1rem;color:var(--muted);transition:color .2s;display:block;}
 .svc:hover .arr{color:var(--red);}
 
-/* CTA */
 .cta{background:var(--red);padding:4.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
 .cta-t{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;}
 .cta-t small{display:block;font-size:.9rem;font-weight:400;margin-top:.5rem;opacity:.65;}
 .cta-btns{display:flex;flex-direction:column;gap:.7rem;flex-shrink:0;}
-.cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
 .cta-b1:hover{background:var(--bg);color:#fff;}
-.cta-b2{display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:.8rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.cta-b2{display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:.8rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
 .cta-b2:hover{background:rgba(255,255,255,.12);}
 
-/* FOOTER */
 footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
 .ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
 .ft-brand p{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
-.ft-nav{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
-.ft-nav a{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
-.ft-nav a:hover{color:var(--red);}
+.ft-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
+.ft-links a{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
+.ft-links a:hover{color:var(--red);}
 .fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;gap:1rem;flex-wrap:wrap;}
-.ft-copy{font-size:.65rem;color:rgba(255,255,255,.16);}
-.ft-copy a{color:inherit;text-decoration:none;}
+.ft-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+.ft-copy a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .18s;}
+.ft-copy a:hover{color:var(--red);}
 
 .rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
 .rv.on{opacity:1;transform:translateY(0);}
 
-/* MOBILE */
 @media(max-width:860px){
   nav{padding:0 1.2rem;}
-  .nav-links{display:none;}
-  .nav-cta{display:none;}
-  .ham{display:flex;}
+  .nav-links,.nav-cta{display:none;}
   .hero{padding:68px 1.2rem 80px;}
   .sec{padding:3.5rem 1.2rem;}
   .spotify-grid,.yt-grid{grid-template-columns:1fr;}
@@ -153,9 +136,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   </ul>
   <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
   <button class="ham" id="ham" aria-label="Open menu">
-    <span class="bar1"></span>
-    <span class="bar2"></span>
-    <span class="bar3"></span>
+    <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
   </button>
 </nav>
 
@@ -180,7 +161,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   </div>
 </section>
 
-<!-- SPOTIFY -->
 <section class="sec s1 rv">
   <div class="eyebrow">Stream</div>
   <div class="sec-title">Listen <span>Now</span></div>
@@ -200,7 +180,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   </div>
 </section>
 
-<!-- PLATFORMS -->
 <section class="sec rv">
   <div class="eyebrow">Available On</div>
   <div class="sec-title">Stream <span>Everywhere</span></div>
@@ -240,7 +219,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   </div>
 </section>
 
-<!-- YOUTUBE -->
 <section class="sec s1 rv">
   <div class="eyebrow">Watch</div>
   <div class="sec-title">Latest <span>Videos</span></div>
@@ -249,13 +227,12 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU8BcQItp7hOnUYNE0r2eEcQ&rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
     <div>
-      <p class="yt-desc">Music videos, lyric videos, and new releases — automatically updated as content goes live. No playlists to manage, no links to update.</p>
+      <p class="yt-desc">Music videos, lyric videos, and new releases updated automatically as content goes live. No playlists to manage, no links to update.</p>
       <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ/videos" target="_blank" class="yt-btn">View Full Channel &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="sec rv" style="padding-bottom:0;">
   <div class="eyebrow">What I Do</div>
   <div class="sec-title" style="margin-bottom:2rem;">Services</div>
@@ -264,24 +241,23 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   <a href="mixing-mastering.html" class="svc rv">
     <div class="svc-n">01</div>
     <div class="svc-title">Mixing &amp; Mastering</div>
-    <div class="svc-d">Precision mixing and professional mastering — polished, release-ready tracks built for every platform.</div>
+    <div class="svc-d">Precision mixing and professional mastering. Polished, release-ready tracks built for every platform.</div>
     <span class="arr">&rarr;</span>
   </a>
   <a href="production.html" class="svc rv">
     <div class="svc-n">02</div>
     <div class="svc-title">Production</div>
-    <div class="svc-d">Full-service production in a state-of-the-art studio — from first session to final delivery.</div>
+    <div class="svc-d">Full-service production in a state-of-the-art studio. From first session to final delivery.</div>
     <span class="arr">&rarr;</span>
   </a>
   <a href="composing.html" class="svc rv">
     <div class="svc-n">03</div>
     <div class="svc-title">Composing</div>
-    <div class="svc-d">Original compositions in EDM, orchestral, pop &amp; beyond — every note crafted with purpose.</div>
+    <div class="svc-d">Original compositions in EDM, orchestral, pop &amp; beyond. Every note crafted with purpose.</div>
     <span class="arr">&rarr;</span>
   </a>
 </div>
 
-<!-- CTA -->
 <div class="cta rv">
   <div class="cta-t">Let's make something great.<small>jackchabowski@gmail.com</small></div>
   <div class="cta-btns">
@@ -293,10 +269,10 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 <footer>
   <div class="ft">
     <div class="ft-brand">
-      <a href="index.html" class="nav-logo" style="font-size:.88rem;">Jack Chabowski</a>
+      <a href="index.html" class="nav-logo" style="font-size:.9rem;">Jack Chabowski</a>
       <p>Music Producer &middot; Mixing Engineer &middot; Composer</p>
     </div>
-    <nav class="ft-nav">
+    <nav class="ft-links">
       <a href="index.html">Home</a>
       <a href="mixing-mastering.html">Mixing / Mastering</a>
       <a href="production.html">Production</a>
@@ -304,32 +280,23 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     </nav>
   </div>
   <div class="fb">
-    <div class="ft-copy">&copy; 2024 Jack Chabowski &middot; <a href="https://www.jackchabowski.com/terms-and-conditions">Terms</a> &middot; <a href="https://www.jackchabowski.com/privacy-policy">Privacy</a></div>
+    <div class="ft-copy">&copy; <span id="yr"></span> Jack Chabowski &middot; Music Entertainment &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></div>
     <div style="display:flex;gap:1.5rem;">
-      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-nav" style="display:inline;">Spotify</a>
-      <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="ft-nav" style="display:inline;">Apple Music</a>
-      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="ft-nav" style="display:inline;">YouTube</a>
+      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-links" style="display:inline;">Spotify</a>
+      <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="ft-links" style="display:inline;">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="ft-links" style="display:inline;">YouTube</a>
     </div>
   </div>
 </footer>
 
 <script>
+document.getElementById('yr').textContent = new Date().getFullYear();
 var ham = document.getElementById('ham');
 var mob = document.getElementById('mob');
-ham.addEventListener('click', function() {
-  ham.classList.toggle('open');
-  mob.classList.toggle('open');
-});
-mob.querySelectorAll('a').forEach(function(a) {
-  a.addEventListener('click', function() {
-    ham.classList.remove('open');
-    mob.classList.remove('open');
-  });
-});
+ham.addEventListener('click', function() { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+mob.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', function() { ham.classList.remove('open'); mob.classList.remove('open'); }); });
 var rvEls = document.querySelectorAll('.rv');
-var obs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
-}, {threshold: 0.08});
+var obs = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); }); }, {threshold: 0.08});
 rvEls.forEach(function(el) { obs.observe(el); });
 </script>
 </body>
