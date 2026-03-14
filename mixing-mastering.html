@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixing & Mastering — Jack Chabowski</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--surface:#111111;--surface2:#181818;--white:#FFFFFF;--lime:#C8F02D;--mid:#666660;--border:rgba(255,255,255,.08);--text:rgba(255,255,255,.85);--muted:rgba(255,255,255,.38);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(10,10,10,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
+.nav-links a:hover,.nav-links a.active{color:var(--lime);}
+.nav-cta{background:var(--lime);color:var(--bg);padding:.5rem 1.2rem;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.nav-cta:hover{background:var(--white);}
+
+.pg-hero{min-height:80vh;padding-top:60px;background:var(--surface);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:5rem;padding-left:2.5rem;padding-right:2.5rem;position:relative;overflow:hidden;}
+.pg-hero::before{content:'';position:absolute;top:-20%;right:-5%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,240,45,.07) 0%,transparent 70%);pointer-events:none;}
+.pg-bc{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:.5rem;}
+.pg-bc::before{content:'';width:1.5rem;height:1.5px;background:var(--lime);display:block;}
+.pg-title{font-family:'Syne',sans-serif;font-size:clamp(4rem,10vw,9rem);font-weight:800;line-height:.9;letter-spacing:-.03em;color:var(--white);}
+.pg-title span{color:var(--lime);}
+.pg-sub{font-size:1.05rem;line-height:1.65;color:var(--muted);max-width:520px;margin-top:2rem;margin-bottom:2.5rem;}
+.btn-lime{display:inline-flex;align-items:center;gap:.5rem;background:var(--lime);color:var(--bg);padding:.85rem 2rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .18s;width:fit-content;}
+.btn-lime:hover{background:var(--white);}
+
+.sec{padding:5.5rem 2.5rem;}
+.sec.s2{background:var(--surface);}
+.sec.s3{background:var(--surface2);}
+.eye{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.eye::before{content:'';width:1.5rem;height:1.5px;background:var(--lime);display:block;}
+.sh{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:.95;letter-spacing:-.025em;margin-bottom:3rem;color:var(--white);}
+.sh span{color:var(--lime);}
+
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.offer{padding:3rem 2.5rem;background:var(--surface);border-top:3px solid var(--border);transition:all .22s;}
+.offer:hover{border-top-color:var(--lime);background:var(--surface2);}
+.offer-n{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:1.5rem;letter-spacing:-.03em;}
+.offer-title{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:800;margin-bottom:.8rem;color:var(--white);}
+.offer-d{font-size:.88rem;line-height:1.7;color:var(--muted);}
+
+.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.why-img{position:relative;}
+.why-img img{width:100%;aspect-ratio:1/1.1;object-fit:cover;display:block;filter:brightness(.8) saturate(.7);}
+.why-badge{position:absolute;bottom:-1rem;right:-1rem;background:var(--lime);padding:1.8rem 2rem;text-align:center;}
+.why-badge-n{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;color:var(--bg);line-height:1;}
+.why-badge-l{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);opacity:.6;margin-top:.3rem;}
+.why-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.why-item{display:flex;gap:1.2rem;padding:1.5rem 0;border-bottom:1px solid var(--border);}
+.why-item:first-child{padding-top:0;}
+.why-num{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--lime);flex-shrink:0;width:2rem;}
+.why-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:.3rem;color:var(--white);}
+.why-d{font-size:.85rem;line-height:1.65;color:var(--muted);}
+
+.spot-strip{background:var(--surface2);padding:4rem 2.5rem;border-top:1px solid var(--border);}
+
+.cta{background:var(--lime);padding:5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.cta-t{font-family:'Syne',sans-serif;font-size:clamp(2rem,5.5vw,4.5rem);font-weight:800;line-height:.93;letter-spacing:-.025em;color:var(--bg);}
+.cta-t small{display:block;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:400;margin-top:.6rem;opacity:.55;}
+.cta-btn1{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg);color:var(--lime);padding:.9rem 2rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .18s;flex-shrink:0;}
+.cta-btn1:hover{background:var(--white);color:var(--bg);}
+
+footer{background:var(--surface);padding:3rem 2.5rem 2rem;border-top:1px solid var(--border);}
+.ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+.ft-brand p{font-size:.75rem;color:var(--muted);margin-top:.4rem;}
+.ft-nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.ft-nav a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;transition:color .18s;}
+.ft-nav a:hover{color:var(--lime);}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;gap:1rem;flex-wrap:wrap;}
+.ft-copy{font-size:.68rem;color:rgba(255,255,255,.18);}
+.ft-copy a{color:inherit;text-decoration:none;}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:0 1.2rem;}.nav-links{display:none;}
+  .pg-hero,.sec{padding-left:1.2rem;padding-right:1.2rem;}
+  .offers{grid-template-columns:1fr;}
+  .why-layout{grid-template-columns:1fr;}
+  .cta{flex-direction:column;padding:3rem 1.2rem;}
+  footer{padding:2.5rem 1.2rem 1.5rem;}
+  .ft{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Jack Chabowski</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mixing-mastering.html" class="active">Mixing / Mastering</a></li>
+    <li><a href="production.html">Production</a></li>
+    <li><a href="composing.html">Composing</a></li>
+  </ul>
+  <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
+</nav>
+
+<section class="pg-hero">
+  <div class="pg-bc">Services</div>
+  <h1 class="pg-title">Mixing &amp;<br><span>Mastering</span></h1>
+  <p class="pg-sub">Precision mixing and professional mastering — from raw sessions to release-ready tracks that shine on every platform.</p>
+  <a href="mailto:jackchabowski@gmail.com" class="btn-lime">Get a Quote →</a>
+</section>
+
+<section class="sec rv">
+  <div class="eye">What I Offer</div>
+  <div class="sh">Three pillars of <span>exceptional sound</span></div>
+  <div class="offers">
+    <div class="offer rv">
+      <div class="offer-n">01</div>
+      <div class="offer-title">Precision Mixing</div>
+      <div class="offer-d">Behind every great song is a meticulously crafted mix. I specialize in harmonizing individual elements, enhancing their sonic characteristics, and achieving a balanced and dynamic sound — finding the perfect balance for vocals, instruments, and effects that grabs the listener's attention.</div>
+    </div>
+    <div class="offer rv">
+      <div class="offer-n">02</div>
+      <div class="offer-title">Masterful Mastering</div>
+      <div class="offer-d">The final touch that makes all the difference. I provide professional mastering services that refine and optimize your tracks for various playback systems and streaming platforms — enhancing overall sonic quality, ensuring your music sounds polished, consistent, and ready to shine.</div>
+    </div>
+    <div class="offer rv">
+      <div class="offer-n">03</div>
+      <div class="offer-title">Collaboration &amp; Customization</div>
+      <div class="offer-d">Every artist's vision is unique. I collaborate closely with you to understand your musical intent and tailor my services accordingly. Whether you want raw authenticity or innovative sonic landscapes, I bring technical expertise and creativity to the table.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec s2 rv">
+  <div class="why-layout">
+    <div class="why-img rv">
+      <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=800&q=80" alt="Studio console">
+      <div class="why-badge">
+        <div class="why-badge-n">100%</div>
+        <div class="why-badge-l">Dedicated</div>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="eye">Why Choose Me</div>
+      <div class="sh">Expertise meets <span>obsession</span></div>
+      <ul class="why-list">
+        <li class="why-item"><div class="why-num">01</div><div><div class="why-title">Years of Experience</div><div class="why-d">Hands-on industry experience bringing a wealth of knowledge and a finely tuned ear to every project.</div></div></li>
+        <li class="why-item"><div class="why-num">02</div><div><div class="why-title">Obsessive Detail</div><div class="why-d">From subtle nuances to bold statements, every element of your music receives the attention it deserves.</div></div></li>
+        <li class="why-item"><div class="why-num">03</div><div><div class="why-title">Technical Excellence</div><div class="why-d">State-of-the-art equipment and cutting-edge techniques delivering results that meet the highest standards.</div></div></li>
+        <li class="why-item"><div class="why-num">04</div><div><div class="why-title">Passion-First</div><div class="why-d">Music isn't just a job — it's a way of life. That dedication is infused into every project.</div></div></li>
+        <li class="why-item"><div class="why-num">05</div><div><div class="why-title">All Genres Welcome</div><div class="why-d">Country, pop, electronic, hip-hop — I'm well-versed across a wide range of musical styles.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="spot-strip rv">
+  <div class="eye">Hear the Work</div>
+  <div class="sh" style="margin-bottom:1.5rem;">Stream on <span>Spotify</span></div>
+  <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1" width="100%" height="280" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+
+<div class="cta rv">
+  <div class="cta-t">Ready to elevate<br>your sound?<small>jackchabowski@gmail.com</small></div>
+  <a href="mailto:jackchabowski@gmail.com" class="cta-btn1">Contact Me Today →</a>
+</div>
+
+<footer>
+  <div class="ft">
+    <div class="ft-brand"><a href="index.html" class="nav-logo">Jack Chabowski</a><p>Music Producer · Mixing Engineer · Composer</p></div>
+    <nav class="ft-nav"><a href="index.html">Home</a><a href="mixing-mastering.html">Mixing/Mastering</a><a href="production.html">Production</a><a href="composing.html">Composing</a></nav>
+  </div>
+  <div class="fb">
+    <div class="ft-copy">© 2024 Jack Chabowski · <a href="https://www.jackchabowski.com/terms-and-conditions">Terms</a> · <a href="https://www.jackchabowski.com/privacy-policy">Privacy</a></div>
+    <div style="display:flex;gap:1.5rem;"><a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-nav" style="display:inline;">Spotify</a><a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="ft-nav" style="display:inline;">YouTube</a></div>
+  </div>
+</footer>
+<script>const rvEls=document.querySelectorAll('.rv');const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');});},{threshold:.08});rvEls.forEach(el=>obs.observe(el));</script>
+</body>
+</html>

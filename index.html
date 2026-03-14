@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jack Chabowski — Music Producer & Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A0A0A;
+  --surface:#111111;
+  --surface2:#181818;
+  --white:#FFFFFF;
+  --lime:#C8F02D;
+  --mid:#666660;
+  --border:rgba(255,255,255,.08);
+  --text:rgba(255,255,255,.85);
+  --muted:rgba(255,255,255,.38);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:400;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(10,10,10,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--white);text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
+.nav-links a:hover,.nav-links a.active{color:var(--lime);}
+.nav-cta{background:var(--lime);color:var(--bg);padding:.5rem 1.2rem;font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.nav-cta:hover{background:var(--white);}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:60px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.hero-inner{flex:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 2.5rem 0;}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(4.5rem,12vw,11rem);font-weight:800;line-height:.9;letter-spacing:-.03em;color:var(--white);}
+.hero-title .outline{-webkit-text-stroke:2.5px rgba(255,255,255,.25);color:transparent;}
+.hero-title .hi{color:var(--lime);-webkit-text-stroke:0;}
+.hero-sub-row{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-top:2.5rem;margin-bottom:3rem;}
+.hero-desc{font-size:1rem;line-height:1.65;color:var(--muted);max-width:440px;}
+.btn-fill{display:inline-flex;align-items:center;gap:.5rem;background:var(--lime);color:var(--bg);padding:.8rem 1.8rem;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.btn-fill:hover{background:var(--white);}
+
+/* MARQUEE */
+.marquee{background:var(--surface);border-top:1px solid var(--border);overflow:hidden;padding:.65rem 0;}
+.marquee-track{display:flex;gap:0;animation:ticker 22s linear infinite;width:max-content;}
+.m-item{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);padding:0 1.8rem;border-right:1px solid rgba(200,240,45,.15);white-space:nowrap;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:5.5rem 2.5rem;}
+.sec.s2{background:var(--surface);}
+.sec.s3{background:var(--surface2);}
+.eye{font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.eye::before{content:'';width:1.5rem;height:1.5px;background:var(--lime);display:block;}
+.sh{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:800;line-height:.95;letter-spacing:-.025em;margin-bottom:3rem;color:var(--white);}
+.sh span{color:var(--lime);}
+
+/* SPOTIFY */
+.spotify-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:start;}
+.spot-name{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;line-height:.95;letter-spacing:-.02em;margin-bottom:1rem;color:var(--white);}
+.spot-sub{font-size:.92rem;line-height:1.7;color:var(--muted);margin-bottom:1.8rem;}
+.pill-row{display:flex;flex-wrap:wrap;gap:.5rem;}
+.pill{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--border);padding:.45rem 1rem;font-family:'Syne',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:all .18s;}
+.pill:hover{background:var(--lime);border-color:var(--lime);color:var(--bg);}
+
+/* PLATFORMS */
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:3rem;background:var(--border);}
+.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;padding:2.5rem 1rem;background:var(--surface);text-decoration:none;transition:background .18s;position:relative;overflow:hidden;}
+.plat::before{content:'';position:absolute;inset:0;background:var(--lime);transform:scaleY(0);transform-origin:bottom;transition:transform .22s ease;z-index:0;}
+.plat:hover::before{transform:scaleY(1);}
+.plat-icon,.plat-lbl{position:relative;z-index:1;}
+.plat-lbl{font-family:'Syne',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .18s;text-align:center;}
+.plat:hover .plat-lbl{color:var(--bg);}
+
+/* YOUTUBE */
+.yt-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start;}
+.yt-frame{aspect-ratio:16/9;overflow:hidden;background:#000;}
+.yt-frame iframe{width:100%;height:100%;display:block;}
+.yt-desc{font-size:.95rem;line-height:1.7;color:var(--muted);margin-bottom:1.8rem;}
+.yt-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--lime);color:var(--bg);padding:.8rem 1.8rem;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.yt-btn:hover{background:var(--white);}
+
+/* SERVICES */
+.svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.svc{padding:3rem 2.5rem;background:var(--surface);text-decoration:none;color:var(--text);display:block;border-top:3px solid transparent;transition:all .22s;}
+.svc:hover{background:var(--surface2);border-top-color:var(--lime);}
+.svc:hover .arr{color:var(--lime);}
+.svc-n{font-family:'Syne',sans-serif;font-size:4rem;font-weight:800;color:rgba(255,255,255,.06);line-height:1;margin-bottom:1.5rem;letter-spacing:-.03em;}
+.svc-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:.7rem;color:var(--white);letter-spacing:-.01em;}
+.svc-d{font-size:.85rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
+.arr{font-size:1.3rem;display:block;color:var(--muted);transition:color .22s;}
+
+/* CTA */
+.cta{background:var(--lime);padding:5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.cta-t{font-family:'Syne',sans-serif;font-size:clamp(2rem,5.5vw,4.5rem);font-weight:800;line-height:.93;letter-spacing:-.025em;color:var(--bg);}
+.cta-t small{display:block;font-family:'DM Sans',sans-serif;font-size:clamp(.9rem,1.5vw,1.1rem);font-weight:400;margin-top:.6rem;opacity:.55;}
+.cta-btns{display:flex;flex-direction:column;gap:.8rem;flex-shrink:0;}
+.cta-btn1{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg);color:var(--lime);padding:.9rem 2rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.cta-btn1:hover{background:var(--white);color:var(--bg);}
+.cta-btn2{display:inline-flex;align-items:center;gap:.5rem;border:2px solid rgba(0,0,0,.3);color:var(--bg);padding:.85rem 2rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:transparent;transition:all .18s;}
+.cta-btn2:hover{background:var(--bg);color:var(--lime);}
+
+/* FOOTER */
+footer{background:var(--surface);padding:3rem 2.5rem 2rem;border-top:1px solid var(--border);}
+.ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:2rem;border-bottom:1px solid var(--border);}
+.ft-brand p{font-size:.75rem;color:var(--muted);margin-top:.4rem;}
+.ft-nav{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
+.ft-nav a{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;font-family:'Syne',sans-serif;transition:color .18s;}
+.ft-nav a:hover{color:var(--lime);}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;gap:1rem;flex-wrap:wrap;}
+.ft-copy{font-size:.68rem;color:rgba(255,255,255,.18);}
+.ft-copy a{color:inherit;text-decoration:none;}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.rv.on{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:0 1.2rem;}.nav-links{display:none;}
+  .hero-inner{padding:2.5rem 1.2rem 0;}
+  .hero-sub-row{flex-direction:column;align-items:flex-start;gap:1.5rem;}
+  .sec{padding:3.5rem 1.2rem;}
+  .spotify-grid,.yt-grid{grid-template-columns:1fr;}
+  .svc-row{grid-template-columns:1fr;}
+  .plat-grid{grid-template-columns:repeat(2,1fr);}
+  .cta{flex-direction:column;padding:3rem 1.2rem;}
+  .cta-btns{width:100%;}
+  footer{padding:2.5rem 1.2rem 1.5rem;}
+  .ft{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Jack Chabowski</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
+    <li><a href="production.html">Production</a></li>
+    <li><a href="composing.html">Composing</a></li>
+  </ul>
+  <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="hero-title">
+      JACK<br>
+      <span class="outline">CHA<span class="hi">B</span>OW</span><br>SKI
+    </h1>
+    <div class="hero-sub-row">
+      <p class="hero-desc">Music producer, mixing engineer &amp; composer. Building sonic worlds from studio to stage — across every genre.</p>
+      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="btn-fill">▶ Stream Now</a>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="m-item">Mixing</span><span class="m-item">Mastering</span><span class="m-item">Production</span><span class="m-item">Composing</span><span class="m-item">EDM</span><span class="m-item">Orchestral</span><span class="m-item">Pop</span><span class="m-item">Dance</span><span class="m-item">Electronic</span><span class="m-item">Hamilton ON</span>
+      <span class="m-item">Mixing</span><span class="m-item">Mastering</span><span class="m-item">Production</span><span class="m-item">Composing</span><span class="m-item">EDM</span><span class="m-item">Orchestral</span><span class="m-item">Pop</span><span class="m-item">Dance</span><span class="m-item">Electronic</span><span class="m-item">Hamilton ON</span>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTIFY -->
+<section class="sec s2 rv">
+  <div class="eye">Stream</div>
+  <div class="sh">Listen <span>Now</span></div>
+  <div class="spotify-grid">
+    <div>
+      <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1" width="100%" height="420" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div>
+      <div class="spot-name">Jack<br>Chabowski</div>
+      <p class="spot-sub">Dance, electronic, pop &amp; beyond. Every new release appears here automatically — no manual updates, ever.</p>
+      <div class="pill-row">
+        <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="pill">▶ Spotify</a>
+        <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="pill">♫ Apple Music</a>
+        <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="pill">▷ YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="sec rv">
+  <div class="eye">Available On</div>
+  <div class="sh">Stream <span>Everywhere</span></div>
+  <div class="plat-grid">
+    <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#1DB954"/><path d="M16.7 10.4c-2.8-1.7-7.5-1.8-10.2-1a.75.75 0 0 0 .5 1.4c2.4-.7 6.5-.6 9 .9a.75.75 0 0 0 .7-1.3zm-.2 2.8c-2.5-1.5-6.2-1.9-9.1-1.1a.65.65 0 0 0 .4 1.2c2.5-.7 5.9-.3 8.1 1a.65.65 0 0 0 .6-1.1zm-.2 2.7c-2-1.2-4.6-1.4-7.7-.8a.55.55 0 0 0 .3 1.1c2.8-.5 5.2-.4 7 .7a.55.55 0 0 0 .4-.9v-.1z" fill="white"/></svg></div>
+      <div class="plat-lbl">Spotify</div>
+    </a>
+    <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F94F5E"/><stop offset="1" stop-color="#C8278C"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#ag)"/><path d="M15.5 8c-.3 0-1.1.4-2 .4-.8 0-1.6-.4-2.2-.4-1.7 0-3 1.5-3 3.7 0 2.4 1.5 5.3 2.8 5.3.5 0 1-.4 1.7-.4.7 0 1 .4 1.7.4 1.3 0 2.5-2.7 2.8-3.7-.8-.4-1.5-1.2-1.5-2.3 0-1 .6-1.8 1.3-2.2-.4-.5-1-.8-1.6-.8zm-1.2-2c.4-.5.7-1.2.6-1.8-.6 0-1.4.4-1.8.9-.4.5-.7 1.1-.6 1.7.6 0 1.4-.4 1.8-.8z" fill="white"/></svg></div>
+      <div class="plat-lbl">Apple Music</div>
+    </a>
+    <a href="https://music.amazon.com/search/jack%20chabowski" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#232F3E"/><text x="5" y="15.5" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="white">a</text><path d="M5.5 17c2.5 1.8 6.2 2.8 9.5 1.5" stroke="#FF9900" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M15 18.2l1.5-.8-.3 1.6" fill="#FF9900"/></svg></div>
+      <div class="plat-lbl">Amazon Music</div>
+    </a>
+    <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FF0000"/><path d="M19.6 8.5a2.1 2.1 0 0 0-1.5-1.5C16.8 6.7 12 6.7 12 6.7s-4.8 0-6.1.3A2.1 2.1 0 0 0 4.4 8.5C4.1 9.8 4 11 4 12s.1 2.2.4 3.5a2.1 2.1 0 0 0 1.5 1.5c1.3.3 6.1.3 6.1.3s4.8 0 6.1-.3a2.1 2.1 0 0 0 1.5-1.5c.3-1.3.4-2.5.4-3.5s-.1-2.2-.4-3.5zm-9.1 5.6V9.9l4 2.1-4 2.1z" fill="white"/></svg></div>
+      <div class="plat-lbl">YouTube</div>
+    </a>
+    <a href="https://music.youtube.com/search?q=jack+chabowski" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#FF0000"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="1.5" fill="white"/></svg></div>
+      <div class="plat-lbl">YouTube Music</div>
+    </a>
+    <a href="https://tidal.com/browse/search/jack%20chabowski/artists" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#000"/><path d="M7 9l2.7 2.7L12 9l2.3 2.7L17 9M7 12.5l2.7 2.7L12 12.5l2.3 2.7L17 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+      <div class="plat-lbl">Tidal</div>
+    </a>
+    <a href="https://www.deezer.com/search/jack%20chabowski" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#A238FF"/><rect x="6" y="14.5" width="2.2" height="2" rx=".3" fill="white"/><rect x="9" y="12" width="2.2" height="4.5" rx=".3" fill="white"/><rect x="12" y="10" width="2.2" height="6.5" rx=".3" fill="white"/><rect x="15" y="8" width="2.2" height="8.5" rx=".3" fill="white"/></svg></div>
+      <div class="plat-lbl">Deezer</div>
+    </a>
+    <a href="https://www.shazam.com/en-us/artist/jack-chabowski/1336265940" target="_blank" class="plat">
+      <div class="plat-icon"><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#0088FF"/><text x="7.8" y="16.8" font-family="Georgia,serif" font-weight="bold" font-size="14" fill="white">S</text></svg></div>
+      <div class="plat-lbl">Shazam</div>
+    </a>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="sec s2 rv">
+  <div class="eye">Watch</div>
+  <div class="sh">Latest <span>Videos</span></div>
+  <div class="yt-grid">
+    <div class="yt-frame">
+      <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU8BcQItp7hOnUYNE0r2eEcQ&rel=0&modestbranding=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+    <div>
+      <p class="yt-desc">Music videos, lyric videos, and new releases — automatically updated as content goes live. No playlists to manage, no links to update.</p>
+      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ/videos" target="_blank" class="yt-btn">View Full Channel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec rv" style="padding-bottom:0;">
+  <div class="eye">What I Do</div>
+  <div class="sh" style="margin-bottom:2rem;">Services</div>
+</section>
+<div class="svc-row">
+  <a href="mixing-mastering.html" class="svc rv">
+    <div class="svc-n">01</div>
+    <div class="svc-title">Mixing &amp; Mastering</div>
+    <div class="svc-d">Precision mixing and professional mastering — polished, release-ready tracks built for every platform.</div>
+    <span class="arr">→</span>
+  </a>
+  <a href="production.html" class="svc rv">
+    <div class="svc-n">02</div>
+    <div class="svc-title">Production</div>
+    <div class="svc-d">Full-service production in a state-of-the-art studio — from first session to final delivery.</div>
+    <span class="arr">→</span>
+  </a>
+  <a href="composing.html" class="svc rv">
+    <div class="svc-n">03</div>
+    <div class="svc-title">Composing</div>
+    <div class="svc-d">Original compositions in EDM, orchestral, pop &amp; beyond — every note crafted with purpose.</div>
+    <span class="arr">→</span>
+  </a>
+</div>
+
+<!-- CTA -->
+<div class="cta rv">
+  <div class="cta-t">
+    Let's Make<br>Something Great
+    <small>jackchabowski@gmail.com</small>
+  </div>
+  <div class="cta-btns">
+    <a href="mailto:jackchabowski@gmail.com" class="cta-btn1">Send a Message →</a>
+    <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="cta-btn2">Stream My Music →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="ft">
+    <div class="ft-brand">
+      <a href="index.html" class="nav-logo">Jack Chabowski</a>
+      <p>Music Producer · Mixing Engineer · Composer</p>
+    </div>
+    <nav class="ft-nav">
+      <a href="index.html">Home</a>
+      <a href="mixing-mastering.html">Mixing / Mastering</a>
+      <a href="production.html">Production</a>
+      <a href="composing.html">Composing</a>
+    </nav>
+  </div>
+  <div class="fb">
+    <div class="ft-copy">© 2024 Jack Chabowski · Music Entertainment · <a href="https://www.jackchabowski.com/terms-and-conditions">Terms</a> · <a href="https://www.jackchabowski.com/privacy-policy">Privacy</a></div>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-nav" style="display:inline;">Spotify</a>
+      <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="ft-nav" style="display:inline;">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="ft-nav" style="display:inline;">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const rvEls=document.querySelectorAll('.rv');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on');});},{threshold:.08});
+rvEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
