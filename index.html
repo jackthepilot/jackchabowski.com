@@ -8,253 +8,128 @@
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0A0A0A;
-  --s1:#111111;
-  --s2:#181818;
-  --white:#FFFFFF;
-  --lime:#E8322A;
-  --text:rgba(255,255,255,.82);
-  --muted:rgba(255,255,255,.38);
-  --border:rgba(255,255,255,.1);
+  --bg:#0A0A0A;--s1:#111111;--s2:#181818;
+  --white:#FFFFFF;--red:#E8322A;
+  --text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;overflow-x:hidden;}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;overflow-x:hidden;}
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  height:64px;display:flex;align-items:center;justify-content:space-between;
-  padding:0 2.5rem;
-  background:rgba(28,28,28,.98);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.nav-logo{
-  font-family:'Manrope',sans-serif;font-size:1.05rem;font-weight:800;
-  letter-spacing:.06em;color:var(--white);text-decoration:none;
-  text-transform:uppercase;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.13);}
+.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
-.nav-links a{
-  font-size:.82rem;font-weight:600;letter-spacing:.06em;
-  text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;transition:color .18s;
-}
-.nav-links a:hover,.nav-links a.active{color:var(--white);}
-.nav-contact{
-  font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--lime);text-decoration:none;
-  border:1px solid rgba(232,50,42,.5);
-  padding:.46rem 1.2rem;
-  transition:all .18s;
-}
-.nav-contact:hover{background:var(--lime);color:var(--bg);border-color:var(--lime);}
+.nav-links a{font-size:.85rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-cta{font-size:.8rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;}
+.nav-cta:hover{background:var(--red);color:#fff;}
 
-/* hamburger — hidden on desktop */
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.ham span{display:block;width:26px;height:2.5px;background:var(--white);border-radius:2px;transition:all .25s;}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+/* HAMBURGER — 3 lines, hidden on desktop */
+.ham{display:none;flex-direction:column;justify-content:center;gap:6px;width:40px;height:40px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+.ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
+.ham.open .bar1{transform:translateY(8px) rotate(45deg);}
+.ham.open .bar2{opacity:0;transform:scaleX(0);}
+.ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
 
-/* mobile drawer */
-.mobile-nav{
-  display:none;
-  position:fixed;top:64px;left:0;right:0;z-index:190;
-  background:rgba(22,22,22,.99);
-  border-bottom:1px solid var(--border);
-  padding:1.5rem 2rem 2rem;
-  flex-direction:column;gap:0;
-}
-.mobile-nav.open{display:flex;}
-.mobile-nav a{
-  font-size:1.05rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
-  color:rgba(255,255,255,.6);text-decoration:none;padding:1.1rem 0;
-  border-bottom:1px solid var(--border);transition:color .18s;
-}
-.mobile-nav a:hover,.mobile-nav a.active{color:var(--lime);}
-.mobile-nav a:last-child{border-bottom:none;}
+/* MOBILE DRAWER */
+.mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
+.mob.open{display:flex;}
+.mob a{font-size:1.15rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.15rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
+.mob a:last-child{border-bottom:none;}
+.mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
 
-/* ── HERO ── */
-.hero{
-  min-height:100vh;padding-top:64px;
-  display:flex;flex-direction:column;justify-content:center;
-  padding-left:2.5rem;padding-right:2.5rem;
-  position:relative;
-}
-.hero-label{
-  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:1.5rem;
-  display:flex;align-items:center;gap:.6rem;
-}
-.hero-label::before{content:'';width:1.5rem;height:1px;background:var(--lime);}
-.hero-title{
-  font-size:clamp(2.8rem,6vw,5.5rem);
-  font-weight:800;line-height:1.08;
-  letter-spacing:-.025em;
-  color:var(--white);
-  margin-bottom:1.5rem;
-  max-width:700px;
-}
-.hero-title span{color:var(--lime);}
-.hero-desc{
-  font-size:1rem;line-height:1.7;color:var(--muted);
-  max-width:480px;margin-bottom:2.5rem;font-weight:400;
-}
-.btn-lime{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--lime);color:var(--bg);
-  padding:.8rem 1.8rem;font-family:'Manrope',sans-serif;
-  font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;transition:all .18s;width:fit-content;
-}
-.btn-lime:hover{background:var(--white);}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:68px 2.5rem 80px;position:relative;}
+.hero-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+.hero-label::before{content:'';width:1.5rem;height:1px;background:var(--red);}
+.hero-title{font-size:clamp(2.8rem,6vw,5.5rem);font-weight:800;line-height:1.08;letter-spacing:-.025em;color:#fff;margin-bottom:1.5rem;max-width:700px;}
+.hero-title span{color:var(--red);}
+.hero-desc{font-size:1rem;line-height:1.7;color:var(--muted);max-width:480px;margin-bottom:2.5rem;}
+.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.8rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;width:fit-content;}
+.btn-red:hover{background:#c42820;}
 
 /* marquee */
-.marquee{
-  position:absolute;bottom:0;left:0;right:0;
-  background:var(--s1);border-top:1px solid var(--border);
-  overflow:hidden;padding:.6rem 0;
-}
-.marquee-track{
-  display:flex;width:max-content;
-  animation:ticker 24s linear infinite;
-}
-.m-item{
-  font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--lime);padding:0 1.8rem;
-  border-right:1px solid rgba(200,240,45,.12);white-space:nowrap;
-}
+.marquee{position:absolute;bottom:0;left:0;right:0;background:var(--s1);border-top:1px solid var(--border);overflow:hidden;padding:.6rem 0;}
+.marquee-track{display:flex;width:max-content;animation:ticker 24s linear infinite;}
+.m-item{font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);padding:0 1.8rem;border-right:1px solid rgba(232,50,42,.18);white-space:nowrap;}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* ── SECTIONS ── */
+/* SECTIONS */
 .sec{padding:5rem 2.5rem;}
 .sec.s1{background:var(--s1);}
 .sec.s2{background:var(--s2);}
-.eyebrow{
-  font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:.5rem;
-  display:flex;align-items:center;gap:.5rem;
-}
-.eyebrow::before{content:'';width:1.2rem;height:1px;background:var(--lime);}
-.sec-title{
-  font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;
-  line-height:1.1;letter-spacing:-.02em;color:var(--white);
-  margin-bottom:2.5rem;
-}
-.sec-title span{color:var(--lime);}
+.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.eyebrow::before{content:'';width:1.2rem;height:1px;background:var(--red);}
+.sec-title{font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:2.5rem;}
+.sec-title span{color:var(--red);}
 
-/* spotify */
+/* SPOTIFY */
 .spotify-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:start;}
-.spot-name{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:var(--white);margin-bottom:.8rem;line-height:1.1;}
+.spot-name{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:#fff;margin-bottom:.8rem;line-height:1.1;}
 .spot-sub{font-size:.88rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
 .pill-row{display:flex;flex-wrap:wrap;gap:.5rem;}
-.pill{
-  display:inline-flex;align-items:center;gap:.35rem;
-  border:1px solid var(--border);padding:.4rem .9rem;
-  font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;color:var(--muted);transition:all .18s;
-}
-.pill:hover{background:var(--lime);border-color:var(--lime);color:var(--bg);}
+.pill{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--border);padding:.4rem .9rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:all .18s;}
+.pill:hover{background:var(--red);border-color:var(--red);color:#fff;}
 
-/* platforms */
-.plat-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;background:var(--border);margin-top:2.5rem;
-}
-.plat{
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:.6rem;padding:2.2rem 1rem;background:var(--s1);
-  text-decoration:none;position:relative;overflow:hidden;transition:background .18s;
-}
-.plat::after{
-  content:'';position:absolute;inset:0;background:var(--lime);
-  transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;z-index:0;
-}
+/* PLATFORMS */
+.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2.5rem;}
+.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2.2rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;}
+.plat::after{content:'';position:absolute;inset:0;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;z-index:0;}
 .plat:hover::after{transform:scaleY(1);}
 .plat-icon,.plat-lbl{position:relative;z-index:1;}
-.plat-lbl{
-  font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--muted);transition:color .18s;text-align:center;
-}
-.plat:hover .plat-lbl{color:var(--bg);}
+.plat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .18s;text-align:center;}
+.plat:hover .plat-lbl{color:#fff;}
 
-/* youtube */
+/* YOUTUBE */
 .yt-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:3rem;align-items:start;}
 .yt-frame{aspect-ratio:16/9;overflow:hidden;}
 .yt-frame iframe{width:100%;height:100%;display:block;}
 .yt-desc{font-size:.9rem;line-height:1.7;color:var(--muted);margin-bottom:1.5rem;}
-.yt-btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--lime);color:var(--bg);padding:.75rem 1.6rem;
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;transition:all .18s;
-}
-.yt-btn:hover{background:var(--white);}
+.yt-btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.75rem 1.6rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;}
+.yt-btn:hover{background:#c42820;}
 
-/* services */
+/* SERVICES */
 .svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-.svc{
-  padding:2.5rem 2rem;background:var(--s1);text-decoration:none;color:var(--text);
-  display:block;border-top:2px solid transparent;transition:all .2s;
-}
-.svc:hover{background:var(--s2);border-top-color:var(--lime);}
-.svc-n{font-size:2.5rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:1.2rem;letter-spacing:-.02em;}
-.svc-title{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:var(--white);}
+.svc{padding:2.5rem 2rem;background:var(--s1);text-decoration:none;color:var(--text);display:block;border-top:2px solid transparent;transition:all .2s;}
+.svc:hover{background:var(--s2);border-top-color:var(--red);}
+.svc-n{font-size:2.5rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;margin-bottom:1.2rem;}
+.svc-title{font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:#fff;}
 .svc-d{font-size:.83rem;line-height:1.7;color:var(--muted);margin-bottom:1.2rem;}
 .arr{font-size:1rem;color:var(--muted);transition:color .2s;display:block;}
-.svc:hover .arr{color:var(--lime);}
+.svc:hover .arr{color:var(--red);}
 
-/* cta */
-.cta{
-  background:var(--lime);padding:4.5rem 2.5rem;
-  display:flex;align-items:center;justify-content:space-between;gap:2rem;
-}
-.cta-t{
-  font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;
-  line-height:1.1;letter-spacing:-.02em;color:var(--bg);
-}
-.cta-t small{
-  display:block;font-size:.9rem;font-weight:400;
-  margin-top:.5rem;opacity:.5;font-family:'Manrope',sans-serif;
-}
+/* CTA */
+.cta{background:var(--red);padding:4.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.cta-t{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;}
+.cta-t small{display:block;font-size:.9rem;font-weight:400;margin-top:.5rem;opacity:.65;}
 .cta-btns{display:flex;flex-direction:column;gap:.7rem;flex-shrink:0;}
-.cta-b1{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:var(--bg);color:var(--lime);padding:.85rem 1.8rem;
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;transition:all .18s;
-}
-.cta-b1:hover{background:var(--white);color:var(--bg);}
-.cta-b2{
-  display:inline-flex;align-items:center;gap:.5rem;
-  border:1.5px solid rgba(0,0,0,.25);color:var(--bg);padding:.8rem 1.8rem;
-  font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;background:transparent;transition:all .18s;
-}
-.cta-b2:hover{background:var(--bg);color:var(--lime);}
+.cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.cta-b1:hover{background:var(--bg);color:#fff;}
+.cta-b2{display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,.4);color:#fff;padding:.8rem 1.8rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;}
+.cta-b2:hover{background:rgba(255,255,255,.12);}
 
-/* footer */
+/* FOOTER */
 footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
 .ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
 .ft-brand p{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
 .ft-nav{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
 .ft-nav a{font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
-.ft-nav a:hover{color:var(--lime);}
+.ft-nav a:hover{color:var(--red);}
 .fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;gap:1rem;flex-wrap:wrap;}
 .ft-copy{font-size:.65rem;color:rgba(255,255,255,.16);}
 .ft-copy a{color:inherit;text-decoration:none;}
 
-/* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
 .rv.on{opacity:1;transform:translateY(0);}
 
-/* ── MOBILE ── */
+/* MOBILE */
 @media(max-width:860px){
   nav{padding:0 1.2rem;}
-  .nav-links,.nav-contact{display:none;}
-  .ham{display:flex !important;}
-  .hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:80px;}
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .ham{display:flex;}
+  .hero{padding:68px 1.2rem 80px;}
   .sec{padding:3.5rem 1.2rem;}
   .spotify-grid,.yt-grid{grid-template-columns:1fr;}
   .svc-row{grid-template-columns:1fr;}
@@ -276,28 +151,27 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     <li><a href="production.html">Production</a></li>
     <li><a href="composing.html">Composing</a></li>
   </ul>
-  <a href="/cdn-cgi/l/email-protection#0f656e6c646c676e6d60787c64664f68626e6663216c6062" class="nav-contact">Contact</a>
-  <button class="ham" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
+  <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
+  <button class="ham" id="ham" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
   </button>
 </nav>
 
-<div class="mobile-nav" id="mobileNav">
+<div class="mob" id="mob">
   <a href="index.html" class="active">Home</a>
   <a href="mixing-mastering.html">Mixing / Mastering</a>
   <a href="production.html">Production</a>
   <a href="composing.html">Composing</a>
-  <a href="/cdn-cgi/l/email-protection#f19b90929a929990939e86829a98b1969c90989ddf929e9c">Contact</a>
+  <a href="mailto:jackchabowski@gmail.com">Contact</a>
 </div>
 
 <section class="hero">
-  <div class="hero-label">Music Producer & Engineer</div>
-  <h1 class="hero-title">
-    Jack Chabowski,<br>
-    <span>Sound built</span> to last.
-  </h1>
+  <div class="hero-label">Music Producer &amp; Engineer</div>
+  <h1 class="hero-title">Jack Chabowski,<br><span>Sound built</span> to last.</h1>
   <p class="hero-desc">Mixing, mastering, production, and composition. Building sonic worlds from studio to stage, across every genre.</p>
-  <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="btn-lime">▶ Stream Now</a>
+  <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="btn-red">&#9654; Stream Now</a>
   <div class="marquee">
     <div class="marquee-track">
       <span class="m-item">Mixing</span><span class="m-item">Mastering</span><span class="m-item">Production</span><span class="m-item">Composing</span><span class="m-item">EDM</span><span class="m-item">Orchestral</span><span class="m-item">Pop</span><span class="m-item">Dance</span><span class="m-item">Electronic</span><span class="m-item">Hamilton ON</span>
@@ -316,11 +190,11 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     </div>
     <div>
       <div class="spot-name">Jack Chabowski</div>
-      <p class="spot-sub">Dance, electronic, pop & beyond. Every new release appears here automatically — no manual updates ever needed.</p>
+      <p class="spot-sub">Dance, electronic, pop &amp; beyond. Every new release appears here automatically.</p>
       <div class="pill-row">
-        <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="pill">▶ Spotify</a>
-        <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="pill">♫ Apple Music</a>
-        <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="pill">▷ YouTube</a>
+        <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="pill">&#9654; Spotify</a>
+        <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="pill">&#9835; Apple Music</a>
+        <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="pill">&#9655; YouTube</a>
       </div>
     </div>
   </div>
@@ -376,7 +250,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     </div>
     <div>
       <p class="yt-desc">Music videos, lyric videos, and new releases — automatically updated as content goes live. No playlists to manage, no links to update.</p>
-      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ/videos" target="_blank" class="yt-btn">View Full Channel →</a>
+      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ/videos" target="_blank" class="yt-btn">View Full Channel &rarr;</a>
     </div>
   </div>
 </section>
@@ -389,33 +263,30 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 <div class="svc-row">
   <a href="mixing-mastering.html" class="svc rv">
     <div class="svc-n">01</div>
-    <div class="svc-title">Mixing & Mastering</div>
+    <div class="svc-title">Mixing &amp; Mastering</div>
     <div class="svc-d">Precision mixing and professional mastering — polished, release-ready tracks built for every platform.</div>
-    <span class="arr">→</span>
+    <span class="arr">&rarr;</span>
   </a>
   <a href="production.html" class="svc rv">
     <div class="svc-n">02</div>
     <div class="svc-title">Production</div>
     <div class="svc-d">Full-service production in a state-of-the-art studio — from first session to final delivery.</div>
-    <span class="arr">→</span>
+    <span class="arr">&rarr;</span>
   </a>
   <a href="composing.html" class="svc rv">
     <div class="svc-n">03</div>
     <div class="svc-title">Composing</div>
-    <div class="svc-d">Original compositions in EDM, orchestral, pop & beyond — every note crafted with purpose.</div>
-    <span class="arr">→</span>
+    <div class="svc-d">Original compositions in EDM, orchestral, pop &amp; beyond — every note crafted with purpose.</div>
+    <span class="arr">&rarr;</span>
   </a>
 </div>
 
 <!-- CTA -->
 <div class="cta rv">
-  <div class="cta-t">
-    Let's make something great.
-    <small><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="412b20222a222920232e36322a2801262c20282d6f222e2c">[email&#160;protected]</a></small>
-  </div>
+  <div class="cta-t">Let's make something great.<small>jackchabowski@gmail.com</small></div>
   <div class="cta-btns">
-    <a href="/cdn-cgi/l/email-protection#3c565d5f575f545d5e534b4f57557c5b515d5550125f5351" class="cta-b1">Send a Message →</a>
-    <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="cta-b2">Stream My Music →</a>
+    <a href="mailto:jackchabowski@gmail.com" class="cta-b1">Send a Message &rarr;</a>
+    <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="cta-b2">Stream My Music &rarr;</a>
   </div>
 </div>
 
@@ -423,7 +294,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   <div class="ft">
     <div class="ft-brand">
       <a href="index.html" class="nav-logo" style="font-size:.88rem;">Jack Chabowski</a>
-      <p>Music Producer · Mixing Engineer · Composer</p>
+      <p>Music Producer &middot; Mixing Engineer &middot; Composer</p>
     </div>
     <nav class="ft-nav">
       <a href="index.html">Home</a>
@@ -433,7 +304,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     </nav>
   </div>
   <div class="fb">
-    <div class="ft-copy">© 2024 Jack Chabowski · Music Entertainment · <a href="https://www.jackchabowski.com/terms-and-conditions">Terms</a> · <a href="https://www.jackchabowski.com/privacy-policy">Privacy</a></div>
+    <div class="ft-copy">&copy; 2024 Jack Chabowski &middot; <a href="https://www.jackchabowski.com/terms-and-conditions">Terms</a> &middot; <a href="https://www.jackchabowski.com/privacy-policy">Privacy</a></div>
     <div style="display:flex;gap:1.5rem;">
       <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-nav" style="display:inline;">Spotify</a>
       <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="ft-nav" style="display:inline;">Apple Music</a>
@@ -442,12 +313,24 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const ham = document.getElementById('ham');
-const mobileNav = document.getElementById('mobileNav');
-ham.addEventListener('click', () => {
+<script>
+var ham = document.getElementById('ham');
+var mob = document.getElementById('mob');
+ham.addEventListener('click', function() {
   ham.classList.toggle('open');
-  mobileNav.classList.toggle('open');
+  mob.classList.toggle('open');
 });
-// close on link click
-mobileNav.querySelectorAll('a').forEach(a => a.addEven
+mob.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    ham.classList.remove('open');
+    mob.classList.remove('open');
+  });
+});
+var rvEls = document.querySelectorAll('.rv');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold: 0.08});
+rvEls.forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>

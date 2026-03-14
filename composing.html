@@ -19,16 +19,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:64px;display:flex;ali
 .nav-links a:hover,.nav-links a.active{color:var(--white);}
 .nav-contact{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lime);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.42rem 1.1rem;transition:all .18s;}
 .nav-contact:hover{background:var(--lime);color:var(--bg);border-color:var(--lime);}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
-.ham span{display:block;width:26px;height:2.5px;background:var(--white);border-radius:2px;transition:all .25s;}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.ham.open span:nth-child(2){opacity:0;}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;z-index:190;background:rgba(22,22,22,.99);border-bottom:1px solid var(--border);padding:1.5rem 2rem 2rem;flex-direction:column;}
-.mobile-nav.open{display:flex;}
-.mobile-nav a{font-size:1.05rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.1rem 0;border-bottom:1px solid var(--border);transition:color .18s;}
-.mobile-nav a:hover,.mobile-nav a.active{color:var(--lime);}
-.mobile-nav a:last-child{border-bottom:none;}
+.ham{display:none;flex-direction:column;justify-content:center;gap:6px;width:40px;height:40px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+.ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
+.ham.open .bar1{transform:translateY(8px) rotate(45deg);}
+.ham.open .bar2{opacity:0;transform:scaleX(0);}
+.ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
+.mob.open{display:flex;}
+.mob a{font-size:1.15rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.15rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
+.mob a:last-child{border-bottom:none;}
+.mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
 
 /* HERO */
 .pg-hero{min-height:60vh;padding-top:64px;background:var(--s1);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:4rem;padding-left:2.5rem;padding-right:2.5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
@@ -101,7 +101,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 .rv.on{opacity:1;transform:translateY(0);}
 
 @media(max-width:860px){
-  nav{padding:0 1.2rem;}.nav-links,.nav-contact{display:none;}.ham{display:flex !important;}
+  nav{padding:0 1.2rem;}.nav-links,.nav-contact{display:none;}.ham{display:flex;}
   .pg-hero,.sec{padding-left:1.2rem;padding-right:1.2rem;}
   .pg-hero{padding-bottom:3rem;}
   .genre-pane.active{grid-template-columns:1fr;}
@@ -124,9 +124,13 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
     <li><a href="composing.html" class="active">Composing</a></li>
   </ul>
   <a href="/cdn-cgi/l/email-protection#d6bcb7b5bdb5beb7b4b9a1a5bdbf96b1bbb7bfbaf8b5b9bb" class="nav-contact">Contact</a>
-  <button class="ham" id="ham"><span></span><span></span><span></span></button>
+  <button class="ham" id="ham" aria-label="Open menu">
+    <span class="bar1"></span>
+    <span class="bar2"></span>
+    <span class="bar3"></span>
+  </button>
 </nav>
-<div class="mobile-nav" id="mobileNav">
+<div class="mob" id="mob">
   <a href="index.html">Home</a>
   <a href="mixing-mastering.html">Mixing / Mastering</a>
   <a href="production.html">Production</a>
@@ -218,5 +222,5 @@ function showGenre(id,tab){
   document.getElementById('gp-'+id).classList.add('active');
   tab.classList.add('active');
 }
-const ham=document.getElementById('ham'),nav=document.getElementById('mobileNav');
+var ham=document.getElementById('ham');var mob=document.getElementById('mob');
 ham.addEventListener('click',()=>{ham.class
