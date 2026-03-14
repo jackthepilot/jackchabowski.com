@@ -14,7 +14,6 @@ body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;ove
 .rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
 .rv.on{opacity:1;transform:translateY(0);}
 
-
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.14);}
 .nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;flex-shrink:0;}
 .nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center;margin-left:auto;}
@@ -22,17 +21,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .nav-links a:hover,.nav-links a.active{color:#fff;}
 .nav-cta{margin-left:2.2rem;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
 .nav-cta:hover{background:var(--red);color:#fff;}
+
 .ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
 .ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
 .ham.open .bar1{transform:translateY(8px) rotate(45deg);}
 .ham.open .bar2{opacity:0;transform:scaleX(0);}
 .ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
 @media(min-width:861px){.ham{display:none;}}
+
 .mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
 .mob.open{display:flex;}
 .mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
 .mob a:last-child{border-bottom:none;}
 .mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
+
 
 
 .sec{padding:5rem 2.5rem;}
@@ -95,6 +97,8 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 .cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;flex-shrink:0;}
 .cta-b1:hover{background:var(--bg);color:#fff;}
 @media(max-width:860px){
+   nav{padding:0 1.2rem;}
+  .nav-links,.nav-cta{display:none;}
   .pg-hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:3rem;}
   .genre-pane.active{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
@@ -109,14 +113,23 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 
 <nav>
   <a href="index.html" class="nav-logo">Jack Chabowski</a>
-  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="mixing-mastering.html">Mixing / Mastering</a></li><li><a href="production.html">Production</a></li><li><a href="composing.html" class="active">Composing</a></li></ul>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="mixing-mastering.html" class="active">Mixing / Mastering</a></li>
+    <li><a href="production.html">Production</a></li>
+    <li><a href="composing.html">Composing</a></li>
+  </ul>
   <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
   <button class="ham" id="ham" aria-label="Open menu">
     <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
   </button>
 </nav>
+
 <div class="mob" id="mob">
-  <a href="index.html">Home</a><a href="mixing-mastering.html">Mixing / Mastering</a><a href="production.html">Production</a><a href="composing.html" class="active">Composing</a>
+  <a href="index.html">Home</a>
+  <a href="mixing-mastering.html">Mixing / Mastering</a>
+  <a href="production.html">Production</a>
+  <a href="composing.html" class="active">Composing</a>
   <a href="mailto:jackchabowski@gmail.com">Contact</a>
 </div>
 
