@@ -22,12 +22,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .nav-links a:hover,.nav-links a.active{color:#fff;}
 .nav-cta{margin-left:2.2rem;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
 .nav-cta:hover{background:var(--red);color:#fff;}
+
 .ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
 .ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
 .ham.open .bar1{transform:translateY(8px) rotate(45deg);}
 .ham.open .bar2{opacity:0;transform:scaleX(0);}
 .ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
 @media(min-width:861px){.ham{display:none;}}
+   
 .mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
 .mob.open{display:flex;}
 .mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
@@ -137,7 +139,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   <a href="mailto:jackchabowski@gmail.com">Contact</a>
 </div>
 <section class="pg-hero">
-  <div class="pg-hero-left">
+     <img class="bg" src="/images/jack-studio-overview.jpg" alt="Piano keys">
     <div class="pg-bc">Services</div>
     <h1 class="pg-title">Music <span>Production</span></h1>
     <p class="pg-sub">Full-service production. From emerging artists to seasoned musicians and content creators.</p>
