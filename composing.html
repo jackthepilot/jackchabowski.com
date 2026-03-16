@@ -1,252 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Composing by Jack Chabowski</title>
-<link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0A0A0A;--s1:#111;--s2:#181818;--red:#E8322A;--white:#fff;--text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;overflow-x:hidden;}
-.rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
-.rv.on{opacity:1;transform:translateY(0);}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composing by Jack Chabowski | Original Music Composition Services</title>
+  <meta name="description" content="Original music composition by Jack Chabowski across EDM, orchestral, pop, and more. Custom compositions crafted with emotion, precision, and genre versatility.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Jack Chabowski">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="https://jackchabowski.com/composing">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.14);}
-.nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;flex-shrink:0;}
-.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;margin-left:auto;}
-.nav-links a{font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
-.nav-links a:hover,.nav-links a.active{color:#fff;}
-.nav-cta{margin-left:2.2rem;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
-.nav-cta:hover{background:var(--red);color:#fff;}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Composing by Jack Chabowski | Original Music Composition Services">
+  <meta property="og:description" content="Original music composition by Jack Chabowski across EDM, orchestral, pop, and more.">
+  <meta property="og:url" content="https://jackchabowski.com/composing">
+  <meta property="og:site_name" content="Jack Chabowski">
+  <meta property="og:image" content="https://jackchabowski.com/images/piano.jpg">
+  <meta property="og:locale" content="en_CA">
 
-.ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
-.ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
-.ham.open .bar1{transform:translateY(8px) rotate(45deg);}
-.ham.open .bar2{opacity:0;transform:scaleX(0);}
-.ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
-@media(min-width:861px){.ham{display:none;}}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Composing by Jack Chabowski | Original Music Composition Services">
+  <meta name="twitter:description" content="Original music composition by Jack Chabowski across EDM, orchestral, pop, and more.">
+  <meta name="twitter:image" content="https://jackchabowski.com/images/piano.jpg">
 
-.mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
-.mob.open{display:flex;}
-.mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
-.mob a:last-child{border-bottom:none;}
-.mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
-
-
-
-.sec{padding:5rem 2.5rem;}
-.sec.s1{background:var(--s1);}
-.sec.s2{background:var(--s2);}
-.eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
-.eyebrow::before{content:'';width:1.2rem;height:1px;background:var(--red);}
-.sec-title{font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:2.5rem;}
-.sec-title span{color:var(--red);}
-
-
-footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
-.ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
-.ft-brand p{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
-.ft-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
-.ft-links a{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
-.ft-links a:hover{color:var(--red);}
-.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;gap:1rem;flex-wrap:wrap;}
-.ft-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
-.ft-copy a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .18s;}
-.ft-copy a:hover{color:var(--red);}
-
-
-.pg-hero{min-height:60vh;padding-top:68px;background:var(--s1);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:4rem;padding-left:2.5rem;padding-right:2.5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
-.pg-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.30) saturate(.5);z-index:0;}
-.pg-hero > *:not(img){position:relative;z-index:1;}
-.pg-bc{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;}
-.pg-bc::before{content:'';width:1.2rem;height:1px;background:var(--red);}
-.pg-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1rem;}
-.pg-title span{color:var(--red);}
-.pg-sub{font-size:.95rem;line-height:1.7;color:var(--muted);max-width:560px;}
-.tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:3rem;flex-wrap:wrap;}
-.tab{padding:.8rem 1.6rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s;}
-.tab.active{color:#fff;border-bottom-color:var(--red);}
-.genre-pane{display:none;}
-.genre-pane.active{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;}
-.gp-img{position:relative;}
-.gp-img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.5) saturate(.6);}
-.gp-tag{position:absolute;top:1rem;left:1rem;background:var(--red);font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding:.3rem .7rem;}
-.gp-num{font-size:3rem;font-weight:800;color:rgba(255,255,255,.04);line-height:1;letter-spacing:-.02em;margin-bottom:.4rem;}
-.gp-sub{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem;}
-.gp-title{font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:800;line-height:1.1;letter-spacing:-.015em;margin-bottom:1.2rem;color:#fff;}
-.gp-d{font-size:.88rem;line-height:1.75;color:var(--muted);}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
-.why-card{padding:2.2rem 1.8rem;background:var(--bg);border-bottom:2px solid transparent;transition:all .2s;}
-.why-card:hover{border-bottom-color:var(--red);background:var(--s1);}
-.wc-icon{font-size:1.5rem;margin-bottom:.9rem;}
-.wc-title{font-size:.92rem;font-weight:700;margin-bottom:.4rem;color:#fff;}
-.wc-d{font-size:.82rem;line-height:1.7;color:var(--muted);}
-.close-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center;}
-.close-img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.5) saturate(.6);}
-.blockquote{font-size:clamp(1.2rem,2vw,1.7rem);font-weight:700;line-height:1.3;border-left:3px solid var(--red);padding-left:1.3rem;margin-bottom:1.8rem;color:#fff;}
-.close-body{font-size:.88rem;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;}
-.btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.8rem 1.8rem;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;width:fit-content;}
-.btn-red:hover{background:#c42820;}
-.spot-strip{background:var(--s2);padding:4rem 2.5rem;border-top:1px solid var(--border);}
-.cta{background:var(--red);padding:4.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
-.cta-t{font-size:clamp(1.7rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;}
-.cta-t small{display:block;font-size:.88rem;font-weight:400;margin-top:.5rem;opacity:.6;}
-.cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;flex-shrink:0;}
-.cta-b1:hover{background:var(--bg);color:#fff;}
-@media(max-width:860px){
-   nav{padding:0 1.2rem;}
-  .nav-links,.nav-cta{display:none;}
-  .pg-hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:3rem;}
-  .genre-pane.active{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:1fr;}
-  .close-layout{grid-template-columns:1fr;}
-  .spot-strip{padding:3rem 1.2rem;}
-  .cta{flex-direction:column;padding:3rem 1.2rem;}
-}
-
-   @media(max-width:860px){
-  .pg-hero{
-    min-height:auto;
-    padding-top:150px;
-    padding-bottom:2.25rem;
-    justify-content:flex-start;
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "Composing by Jack Chabowski",
+        "url": "https://jackchabowski.com/composing",
+        "description": "Original music composition services by Jack Chabowski across EDM, orchestral, pop, and beyond."
+      },
+      {
+        "@type": "Service",
+        "name": "Composing by Jack Chabowski",
+        "serviceType": "Music Composition",
+        "description": "Original music composition services for artists, filmmakers, and creators across EDM, orchestral, pop, and other genres.",
+        "provider": {
+          "@type": "Person",
+          "name": "Jack Chabowski",
+          "url": "https://jackchabowski.com/",
+          "email": "mailto:jackchabowski@gmail.com",
+          "sameAs": [
+            "https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9",
+            "https://music.apple.com/ca/artist/jack-chabowski/1211010509",
+            "https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ"
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://jackchabowski.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Composing",
+            "item": "https://jackchabowski.com/composing"
+          }
+        ]
+      }
+    ]
   }
+  </script>
 
-  .pg-bc{margin-bottom:.8rem;}
-  .pg-title{margin-bottom:.8rem;}
-}
+  <style>
+    :root{--bg:#0A0A0A;--s1:#111;--s2:#181818;--red:#E8322A;--white:#fff;--text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.38);--border:rgba(255,255,255,.1);}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;overflow-x:hidden;}
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease;}
+    .rv.on{opacity:1;transform:translateY(0);}
 
-</style>
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 2.5rem;background:#1c1c1c;border-bottom:1px solid rgba(255,255,255,.14);}
+    .nav-logo{font-size:1.05rem;font-weight:800;letter-spacing:.06em;color:#fff;text-decoration:none;text-transform:uppercase;flex-shrink:0;}
+    .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;margin-left:auto;}
+    .nav-links a{font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
+    .nav-links a:hover,.nav-links a.active{color:#fff;}
+    .nav-cta{margin-left:2.2rem;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
+    .nav-cta:hover{background:var(--red);color:#fff;}
+
+    .ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
+    .ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
+    .ham.open .bar1{transform:translateY(8px) rotate(45deg);}
+    .ham.open .bar2{opacity:0;transform:scaleX(0);}
+    .ham.open .bar3{transform:translateY(-8px) rotate(-45deg);}
+    @media(min-width:861px){.ham{display:none;}}
+
+    .mob{display:none;position:fixed;top:68px;left:0;right:0;z-index:190;background:#1a1a1a;border-bottom:1px solid rgba(255,255,255,.1);flex-direction:column;}
+    .mob.open{display:flex;}
+    .mob a{font-size:1.2rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;padding:1.2rem 2rem;border-bottom:1px solid rgba(255,255,255,.07);transition:color .18s,background .18s;}
+    .mob a:last-child{border-bottom:none;}
+    .mob a:hover,.mob a.active{color:#fff;background:rgba(255,255,255,.05);}
+
+    .sec{padding:5rem 2.5rem;}
+    .sec.s1{background:var(--s1);}
+    .sec.s2{background:var(--s2);}
+    .eyebrow{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+    .eyebrow::before{content:'';width:1.2rem;height:1px;background:var(--red);}
+    .sec-title{font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:2.5rem;}
+    .sec-title span{color:var(--red);}
+
+    footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
+    .ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
+    .ft-brand p{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+    .ft-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
+    .ft-links a{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
+    .ft-links a:hover{color:var(--red);}
+    .fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;gap:1rem;flex-wrap:wrap;}
+    .ft-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
+    .ft-copy a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .18s;}
+    .ft-copy a:hover{color:var(--red);}
+
+    .pg-hero{min-height:60vh;padding-top:68px;background:var(--s1);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:4rem;padding-left:2.5rem;padding-right:2.5rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .pg-hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.30) saturate(.5);z-index:0;}
+    .pg-hero > *:not(img){position:relative;z-index:1;}
+    .pg-bc{font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;}
+    .pg-bc::before{content:'';width:1.2rem;height:1px;background:var(--red);}
+    .pg-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:1rem;}
+    .pg-title span{color:var(--red);}
+    .pg-sub{font-size:.95rem;line-height:1.7;color:var(--muted);max-width:560px;}
+    .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:3rem;flex-wrap:wrap;}
+    .tab{padding:.8rem 1.6rem;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s;}
+    .tab.active{color:#fff;border-bottom-color:var(--red);}
+    .genre-pane{display:none;}
+    .genre-pane.active{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;}
+    .gp-img{position:relative;}
+    .gp-img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.5) saturate(.6);}
+    .gp-tag{position:absolute;top:1rem;left:1rem;background:var(--red);font-size:.55rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding:.3rem .7rem;}
+    .gp-num{font-size:3rem;font-weight:800;color:rgba(255,255,255,.04);line-height:1;letter-spacing:-.02em;margin-bottom:.4rem;}
+    .gp-sub{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:.6rem;}
+    .gp-title{font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:800;line-height:1.1;letter-spacing:-.015em;margin-bottom:1.2rem;color:#fff;}
+    .gp-d{font-size:.88rem;line-height:1.75;color:var(--muted);}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+    .why-card{padding:2.2rem 1.8rem;background:var(--bg);border-bottom:2px solid transparent;transition:all .2s;}
+    .why-card:hover{border-bottom-color:var(--red);background:var(--s1);}
+    .wc-icon{font-size:1.5rem;margin-bottom:.9rem;}
+    .wc-title{font-size:.92rem;font-weight:700;margin-bottom:.4rem;color:#fff;}
+    .wc-d{font-size:.82rem;line-height:1.7;color:var(--muted);}
+    .close-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center;}
+    .close-img img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:brightness(.5) saturate(.6);}
+    .blockquote{font-size:clamp(1.2rem,2vw,1.7rem);font-weight:700;line-height:1.3;border-left:3px solid var(--red);padding-left:1.3rem;margin-bottom:1.8rem;color:#fff;}
+    .close-body{font-size:.88rem;line-height:1.75;color:var(--muted);margin-bottom:1.8rem;}
+    .btn-red{display:inline-flex;align-items:center;gap:.5rem;background:var(--red);color:#fff;padding:.8rem 1.8rem;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .18s;width:fit-content;}
+    .btn-red:hover{background:#c42820;}
+    .spot-strip{background:var(--s2);padding:4rem 2.5rem;border-top:1px solid var(--border);}
+    .cta{background:var(--red);padding:4.5rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+    .cta-t{font-size:clamp(1.7rem,3.5vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;}
+    .cta-t small{display:block;font-size:.88rem;font-weight:400;margin-top:.5rem;opacity:.6;}
+    .cta-b1{display:inline-flex;align-items:center;background:#fff;color:var(--red);padding:.85rem 1.8rem;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .18s;flex-shrink:0;}
+    .cta-b1:hover{background:var(--bg);color:#fff;}
+    @media(max-width:860px){
+      nav{padding:0 1.2rem;}
+      .nav-links,.nav-cta{display:none;}
+      .pg-hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:3rem;}
+      .genre-pane.active{grid-template-columns:1fr;}
+      .why-grid{grid-template-columns:1fr;}
+      .close-layout{grid-template-columns:1fr;}
+      .spot-strip{padding:3rem 1.2rem;}
+      .cta{flex-direction:column;padding:3rem 1.2rem;}
+    }
+
+    @media(max-width:860px){
+      .pg-hero{
+        min-height:auto;
+        padding-top:150px;
+        padding-bottom:2.25rem;
+        justify-content:flex-start;
+      }
+
+      .pg-bc{margin-bottom:.8rem;}
+      .pg-title{margin-bottom:.8rem;}
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">Jack Chabowski</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
-    <li><a href="production.html">Production</a></li>
-    <li><a href="composing.html" class="active" aria-current="page">Composing</a></li>
-  </ul>
-  <a href="mailto:jackchabowski@gmail.com" class="nav-cta">Contact</a>
-  <button class="ham" id="ham" aria-label="Open menu">
-    <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
-  </button>
-</nav>
+  <nav aria-label="Primary navigation">
+    <a href="index.html" class="nav-logo" aria-label="Jack Chabowski home">Jack Chabowski</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
+      <li><a href="production.html">Production</a></li>
+      <li><a href="composing.html" class="active" aria-current="page">Composing</a></li>
+    </ul>
+    <a href="mailto:jackchabowski@gmail.com" class="nav-cta" aria-label="Contact Jack Chabowski by email">Contact</a>
+    <button class="ham" id="ham" aria-label="Open menu" aria-controls="mob" aria-expanded="false" type="button">
+      <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
+    </button>
+  </nav>
 
-<div class="mob" id="mob">
-  <a href="index.html">Home</a>
-  <a href="mixing-mastering.html">Mixing / Mastering</a>
-  <a href="production.html">Production</a>
-  <a href="composing.html" class="active" aria-current="page">Composing</a>
-  <a href="mailto:jackchabowski@gmail.com">Contact</a>
-</div>
-
-<section class="pg-hero">
-  <img class="bg" src="/images/piano.jpg" alt="Piano keys">
-  <div class="pg-bc">Services</div>
-  <h1 class="pg-title">Composing <span>Stories in Sound</span></h1>
-  <p class="pg-sub">Original compositions across EDM, orchestral, pop, and beyond. Every note crafted with purpose to resonate across genres and audiences.</p>
-</section>
-
-<section class="sec rv">
-  <div class="eyebrow">Genres</div>
-  <div class="sec-title">A composer <span>without limits</span></div>
-  <div class="tabs">
-    <div class="tab active" onclick="showGenre('edm',this)">EDM</div>
-    <div class="tab" onclick="showGenre('orch',this)">Orchestral</div>
-    <div class="tab" onclick="showGenre('pop',this)">Pop</div>
+  <div class="mob" id="mob" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="mixing-mastering.html">Mixing / Mastering</a>
+    <a href="production.html">Production</a>
+    <a href="composing.html" class="active" aria-current="page">Composing</a>
+    <a href="mailto:jackchabowski@gmail.com" aria-label="Contact Jack Chabowski by email">Contact</a>
   </div>
-  <div class="genre-pane active" id="gp-edm">
-    <div class="gp-img"><img src="/images/jack-studio.jpg" alt="Jack's EDM Studio"><div class="gp-tag">EDM</div></div>
-    <div><div class="gp-num">01</div><div class="gp-sub">Electronic Dance Music</div><h3 class="gp-title">Crafting Electro-Magnetic Dreams</h3><p class="gp-d">EDM pulses at the heart of modern musical expression. I specialize in weaving electrifying beats, infectious rhythms, and immersive electronic textures that compel bodies to move and souls to transcend. From euphoric drops to atmospheric build-ups, I create tracks that ignite dance floors and festivals alike.</p></div>
-  </div>
-  <div class="genre-pane" id="gp-orch">
-    <div class="gp-img"><img src="/images/violin-player.jpg" alt="Jack's Violin Player"><div class="gp-tag">Orchestral</div></div>
-    <div><div class="gp-num">02</div><div class="gp-sub">Classical Composition</div><h3 class="gp-title">A Symphony of Emotions</h3><p class="gp-d">The timeless grandeur of orchestral music evokes emotions that words cannot express. My compositions paint landscapes of sonic emotion, from heartwarming strings to thunderous brass. Whether a poignant film score or a transcendent symphony, I craft arrangements that resonate deeply and amplify the narrative.</p></div>
-  </div>
-  <div class="genre-pane" id="gp-pop">
-    <div class="gp-img"><img src="/images/pop-singer.jpg" alt="Jack's Pop Singer Hala"><div class="gp-tag">Pop</div></div>
-    <div><div class="gp-num">03</div><div class="gp-sub">Pop Songwriting</div><h3 class="gp-title">Catchy Hooks and Irresistible Melodies</h3><p class="gp-d">Pop music thrives on connecting with a wide audience. I excel in composing pop tracks that radiate positivity, tell stories of love and life, and captivate listeners with infectious energy. From radio-ready singles to anthems that linger in the mind, I create pop music that stands out.</p></div>
-  </div>
-</section>
 
-<section class="sec s1 rv">
-  <div class="eyebrow">Why Choose Me</div>
-  <div class="sec-title">What sets my <span>compositions apart</span></div>
-  <div class="why-grid">
-    <div class="why-card rv"><div class="wc-icon">&#127932;</div><div class="wc-title">Genre Mastery</div><div class="wc-d">Deep understanding of diverse genres, capturing the unique essence that defines each musical style.</div></div>
-    <div class="why-card rv"><div class="wc-icon">&#128161;</div><div class="wc-title">Innovation</div><div class="wc-d">Creativity and innovation in every composition, ensuring your music stands out from the crowd.</div></div>
-    <div class="why-card rv"><div class="wc-icon">&#10084;</div><div class="wc-title">Emotional Resonance</div><div class="wc-d">Not just notes. A conduit for emotions, stirring hearts and minds with every bar.</div></div>
-    <div class="why-card rv"><div class="wc-icon">&#127931;</div><div class="wc-title">Technical Proficiency</div><div class="wc-d">Cutting-edge technology ensuring top-tier audio quality in every composition.</div></div>
-    <div class="why-card rv"><div class="wc-icon">&#129309;</div><div class="wc-title">Collaborative</div><div class="wc-d">I value your input and collaborate closely to create music that truly aligns with your vision.</div></div>
-    <div class="why-card rv"><div class="wc-icon">&#127758;</div><div class="wc-title">Universal Appeal</div><div class="wc-d">Music that transcends borders and connects with audiences globally.</div></div>
-  </div>
-</section>
+  <section class="pg-hero">
+    <img class="bg" src="/images/piano.jpg" alt="Piano keys for music composition">
+    <div class="pg-bc">Services</div>
+    <h1 class="pg-title">Composing <span>Stories in Sound</span></h1>
+    <p class="pg-sub">Original compositions across EDM, orchestral, pop, and beyond. Every note crafted with purpose to resonate across genres and audiences.</p>
+  </section>
 
-<section class="sec rv">
-  <div class="close-layout">
-    <div class="close-img rv"><img src="/images/studio.jpg" alt="Recording public studio"></div>
-    <div class="rv">
-      <div class="eyebrow">Let's Collaborate</div>
-      <div class="sec-title" style="margin-bottom:1.2rem;">Let's <span>compose</span> stories in sound</div>
-      <blockquote class="blockquote">Whether you are a filmmaker, artist, or visionary, I am here to bring your musical dreams to life.</blockquote>
-      <p class="close-body">Contact me today to discuss your project, receive a personalized quote, and embark on a musical odyssey that will resonate with audiences across the globe.</p>
-      <a href="mailto:jackchabowski@gmail.com" class="btn-red">Get in Touch &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<div class="spot-strip rv">
-  <div class="eyebrow">Hear the Work</div>
-  <div class="sec-title" style="margin-bottom:1.5rem;">Stream on <span>Spotify</span></div>
-  <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1" width="100%" height="420" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
-
-<div class="cta rv">
-  <div class="cta-t">Ready to create timeless soundscapes?<small>jackchabowski@gmail.com</small></div>
-  <a href="mailto:jackchabowski@gmail.com" class="cta-b1">Contact Me &rarr;</a>
-</div>
-
-<script>
-function showGenre(id,tab){
-  document.querySelectorAll('.genre-pane').forEach(function(p){p.classList.remove('active');});
-  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
-  document.getElementById('gp-'+id).classList.add('active');
-  tab.classList.add('active');
-}
-</script>
-
-
-<footer>
-  <div class="ft">
-    <div class="ft-brand">
-      <a href="index.html" class="nav-logo" style="font-size:.9rem;">Jack Chabowski</a>
-      <p>Music Producer &middot; Mixing Engineer &middot; Composer</p>
+  <section class="sec rv">
+    <div class="eyebrow">Genres</div>
+    <div class="sec-title">A composer <span>without limits</span></div>
+    <div class="tabs">
+      <div class="tab active" onclick="showGenre('edm',this)">EDM</div>
+      <div class="tab" onclick="showGenre('orch',this)">Orchestral</div>
+      <div class="tab" onclick="showGenre('pop',this)">Pop</div>
     </div>
 
-  </div>
-  <div class="fb">
-    <div class="ft-copy">&copy; <span id="yr"></span> Jack Chabowski &middot; Music Entertainment &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></div>
-    <div style="display:flex;gap:1.5rem;">
-      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" class="ft-links" style="display:inline;">Spotify</a>
-      <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" class="ft-links" style="display:inline;">Apple Music</a>
-      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" class="ft-links" style="display:inline;">YouTube</a>
+    <div class="genre-pane active" id="gp-edm">
+      <div class="gp-img">
+        <img src="/images/jack-studio.jpg" alt="EDM music production studio">
+        <div class="gp-tag">EDM</div>
+      </div>
+      <div>
+        <div class="gp-num">01</div>
+        <div class="gp-sub">Electronic Dance Music</div>
+        <h3 class="gp-title">Crafting Electro-Magnetic Dreams</h3>
+        <p class="gp-d">EDM pulses at the heart of modern musical expression. I specialize in weaving electrifying beats, infectious rhythms, and immersive electronic textures that compel bodies to move and souls to transcend. From euphoric drops to atmospheric build-ups, I create tracks that ignite dance floors and festivals alike.</p>
+      </div>
     </div>
+
+    <div class="genre-pane" id="gp-orch">
+      <div class="gp-img">
+        <img src="/images/violin-player.jpg" alt="Violin player for orchestral composition">
+        <div class="gp-tag">Orchestral</div>
+      </div>
+      <div>
+        <div class="gp-num">02</div>
+        <div class="gp-sub">Classical Composition</div>
+        <h3 class="gp-title">A Symphony of Emotions</h3>
+        <p class="gp-d">The timeless grandeur of orchestral music evokes emotions that words cannot express. My compositions paint landscapes of sonic emotion, from heartwarming strings to thunderous brass. Whether a poignant film score or a transcendent symphony, I craft arrangements that resonate deeply and amplify the narrative.</p>
+      </div>
+    </div>
+
+    <div class="genre-pane" id="gp-pop">
+      <div class="gp-img">
+        <img src="/images/pop-singer.jpg" alt="Pop singer in studio">
+        <div class="gp-tag">Pop</div>
+      </div>
+      <div>
+        <div class="gp-num">03</div>
+        <div class="gp-sub">Pop Songwriting</div>
+        <h3 class="gp-title">Catchy Hooks and Irresistible Melodies</h3>
+        <p class="gp-d">Pop music thrives on connecting with a wide audience. I excel in composing pop tracks that radiate positivity, tell stories of love and life, and captivate listeners with infectious energy. From radio-ready singles to anthems that linger in the mind, I create pop music that stands out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec s1 rv">
+    <div class="eyebrow">Why Choose Me</div>
+    <div class="sec-title">What sets my <span>compositions apart</span></div>
+    <div class="why-grid">
+      <div class="why-card rv"><div class="wc-icon">&#127932;</div><div class="wc-title">Genre Mastery</div><div class="wc-d">Deep understanding of diverse genres, capturing the unique essence that defines each musical style.</div></div>
+      <div class="why-card rv"><div class="wc-icon">&#128161;</div><div class="wc-title">Innovation</div><div class="wc-d">Creativity and innovation in every composition, ensuring your music stands out from the crowd.</div></div>
+      <div class="why-card rv"><div class="wc-icon">&#10084;</div><div class="wc-title">Emotional Resonance</div><div class="wc-d">Not just notes. A conduit for emotions, stirring hearts and minds with every bar.</div></div>
+      <div class="why-card rv"><div class="wc-icon">&#127931;</div><div class="wc-title">Technical Proficiency</div><div class="wc-d">Cutting-edge technology ensuring top-tier audio quality in every composition.</div></div>
+      <div class="why-card rv"><div class="wc-icon">&#129309;</div><div class="wc-title">Collaborative</div><div class="wc-d">I value your input and collaborate closely to create music that truly aligns with your vision.</div></div>
+      <div class="why-card rv"><div class="wc-icon">&#127758;</div><div class="wc-title">Universal Appeal</div><div class="wc-d">Music that transcends borders and connects with audiences globally.</div></div>
+    </div>
+  </section>
+
+  <section class="sec rv">
+    <div class="close-layout">
+      <div class="close-img rv">
+        <img src="/images/studio.jpg" alt="Recording studio for composing and production">
+      </div>
+      <div class="rv">
+        <div class="eyebrow">Let's Collaborate</div>
+        <div class="sec-title" style="margin-bottom:1.2rem;">Let's <span>compose</span> stories in sound</div>
+        <blockquote class="blockquote">Whether you are a filmmaker, artist, or visionary, I am here to bring your musical dreams to life.</blockquote>
+        <p class="close-body">Contact me today to discuss your project, receive a personalized quote, and embark on a musical odyssey that will resonate with audiences across the globe.</p>
+        <a href="mailto:jackchabowski@gmail.com" class="btn-red" aria-label="Contact Jack Chabowski about composing services">Get in Touch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="spot-strip rv">
+    <div class="eyebrow">Hear the Work</div>
+    <div class="sec-title" style="margin-bottom:1.5rem;">Stream on <span>Spotify</span></div>
+    <iframe
+      style="border-radius:0"
+      src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1"
+      width="100%"
+      height="420"
+      frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+      title="Spotify embed for Jack Chabowski artist profile"></iframe>
   </div>
-</footer>
-<script>
-document.getElementById('yr').textContent = new Date().getFullYear();
-var ham=document.getElementById('ham'),mob=document.getElementById('mob');
-ham.addEventListener('click',function(){ham.classList.toggle('open');mob.classList.toggle('open');});
-mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');});});
-var rvEls=document.querySelectorAll('.rv');
-var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('on');});},{threshold:0.08});
-rvEls.forEach(function(el){obs.observe(el);});
-</script>
+
+  <div class="cta rv">
+    <div class="cta-t">Ready to create timeless soundscapes?<small>jackchabowski@gmail.com</small></div>
+    <a href="mailto:jackchabowski@gmail.com" class="cta-b1" aria-label="Contact Jack Chabowski about composing">Contact Me &rarr;</a>
+  </div>
+
+  <script>
+    function showGenre(id,tab){
+      document.querySelectorAll('.genre-pane').forEach(function(p){p.classList.remove('active');});
+      document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
+      document.getElementById('gp-'+id).classList.add('active');
+      tab.classList.add('active');
+    }
+  </script>
+
+  <footer>
+    <div class="ft">
+      <div class="ft-brand">
+        <a href="index.html" class="nav-logo" style="font-size:.9rem;" aria-label="Jack Chabowski home">Jack Chabowski</a>
+        <p>Music Producer &middot; Mixing Engineer &middot; Composer</p>
+      </div>
+    </div>
+    <div class="fb">
+      <div class="ft-copy">&copy; <span id="yr"></span> Jack Chabowski &middot; Music Entertainment &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></div>
+      <div style="display:flex;gap:1.5rem;">
+        <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" rel="noopener noreferrer" class="ft-links" style="display:inline;" aria-label="Jack Chabowski on Spotify">Spotify</a>
+        <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" rel="noopener noreferrer" class="ft-links" style="display:inline;" aria-label="Jack Chabowski on Apple Music">Apple Music</a>
+        <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" rel="noopener noreferrer" class="ft-links" style="display:inline;" aria-label="Jack Chabowski on YouTube">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    var ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',function(){
+      ham.classList.toggle('open');
+      mob.classList.toggle('open');
+      ham.setAttribute('aria-expanded', ham.classList.contains('open') ? 'true' : 'false');
+    });
+    mob.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click',function(){
+        ham.classList.remove('open');
+        mob.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
+      });
+    });
+    var rvEls=document.querySelectorAll('.rv');
+    var obs=new IntersectionObserver(function(e){
+      e.forEach(function(x){
+        if(x.isIntersecting)x.target.classList.add('on');
+      });
+    },{threshold:0.08});
+    rvEls.forEach(function(el){obs.observe(el);});
+  </script>
 </body>
 </html>
