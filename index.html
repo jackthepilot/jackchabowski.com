@@ -113,10 +113,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .pill:hover{background:var(--red);border-color:var(--red);color:#fff;}
 
 .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2.5rem;}
-.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2.2rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;}
-.plat::after{content:'';position:absolute;inset:0;background:var(--red);transform:scaleY(0);transform-origin:bottom;transition:transform .2s ease;z-index:0;}
-.plat:hover::after{transform:scaleY(1);}
-.plat-icon,.plat-lbl{position:relative;z-index:1;}
+.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:2.4rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;transition:background .18s;}
+.plat:hover{background:var(--s2);}
+.plat-icon-wrap{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
+.plat:hover .plat-icon-wrap{transform:scale(1.08);}
+.plat-icon-wrap img{width:28px;height:28px;display:block;}
 .plat-lbl{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .18s;text-align:center;}
 .plat:hover .plat-lbl{color:#fff;}
 
