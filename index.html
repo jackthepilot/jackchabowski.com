@@ -149,9 +149,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid var(--border);}
 .ft{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;padding-bottom:1.5rem;border-bottom:1px solid var(--border);}
 .ft-brand p{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
-.ft-links{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;}
-.ft-links a{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s;}
+.ft-links{display:flex;gap:0;flex-wrap:wrap;align-items:center;}
+.ft-links a{font-size:.65rem;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.9);text-decoration:none;transition:color .2s;}
 .ft-links a:hover{color:var(--red);}
+.ft-links a + a::before{content:' / ';color:rgba(255,255,255,.3);margin:0 .5rem;}
 .fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;gap:1rem;flex-wrap:wrap;}
 .ft-copy{font-size:.65rem;color:rgba(255,255,255,.2);}
 .ft-copy a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .18s;}
