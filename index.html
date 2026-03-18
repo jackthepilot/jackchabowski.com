@@ -15,9 +15,17 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  
+
+<link rel="preload" as="image" href="/images/studio-mixer.webp" type="image/webp" fetchpriority="high">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//cdn.simpleicons.org">
+<link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="//open.spotify.com">
+<link rel="dns-prefetch" href="//www.youtube.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <meta property="og:type" content="website">
@@ -127,7 +135,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .pill:hover{background:var(--red);border-color:var(--red);color:#fff;}
 
 .plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:2.5rem;}
-.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:2.4rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;transition:background .18s, border-top-color .18s;border-top:2px solid transparent;}
+.plat{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:2.4rem 1rem;background:var(--s1);text-decoration:none;position:relative;overflow:hidden;transition:background .18s,border-top-color .18s;border-top:2px solid transparent;}
 .plat:hover{background:var(--s2);border-top-color:var(--red);}
 .plat-icon-wrap{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s ease;}
 .plat:hover .plat-icon-wrap{transform:scale(1.08);}
@@ -190,37 +198,36 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 }
 
 .fixed-ribbon{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  background: #E8322A;
-  color: #000;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 16px;
-  padding: 12px 18px;
-  box-sizing: border-box;
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  line-height: 1.2;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+  background:#E8322A;
+  color:#000;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px 16px;
+  padding:12px 18px;
+  box-sizing:border-box;
+  font-family:'Manrope',sans-serif;
+  font-size:.95rem;
+  font-weight:700;
+  line-height:1.2;
 }
 
 .r-item{
-  white-space: nowrap;
+  white-space:nowrap;
 }
-
 </style>
 </head>
 <body>
 
 <nav aria-label="Primary navigation">
-  <a href="index.html" class="nav-logo" aria-label="Jack Chabowski home">Jack Chabowski</a>
+  <a href="/" class="nav-logo" aria-label="Jack Chabowski home">Jack Chabowski</a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+    <li><a href="/" class="active" aria-current="page">Home</a></li>
     <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
     <li><a href="production.html">Production</a></li>
     <li><a href="composing.html">Composing</a></li>
@@ -232,7 +239,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 </nav>
 
 <div class="mob" id="mob" aria-label="Mobile navigation">
-  <a href="index.html" class="active" aria-current="page">Home</a>
+  <a href="/" class="active" aria-current="page">Home</a>
   <a href="mixing-mastering.html">Mixing / Mastering</a>
   <a href="production.html">Production</a>
   <a href="composing.html">Composing</a>
@@ -240,7 +247,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 </div>
 
 <section class="hero">
-  <img class="bg" src="/images/studio-mixer.webp" alt="Mixing console">
+  <img class="bg" src="/images/studio-mixer.webp" alt="Jack Chabowski studio mixing console" fetchpriority="high" decoding="async">
   <div class="hero-label">Music Producer &amp; Engineer</div>
   <h1 class="hero-title">Jack Chabowski,<br><span>Sound built</span> to last.</h1>
   <p class="hero-desc">Mixing, mastering, production, and composition. Building sonic worlds from studio to stage, across every genre.</p>
@@ -259,7 +266,7 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   <div class="sec-title">Listen <span>Now</span></div>
   <div class="spotify-grid">
     <div>
-      <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1" width="100%" height="420" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify embed for Jack Chabowski artist profile"></iframe>
+      <iframe style="border-radius:0" src="https://open.spotify.com/embed/artist/1uskO80RN1Ig19sfUyPuQ9?utm_source=generator&theme=1" width="100%" height="420" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify embed for Jack Chabowski artist profile"></iframe>
     </div>
     <div>
       <div class="spot-name">Jack Chabowski</div>
@@ -278,7 +285,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
   <div class="sec-title">Stream <span>Everywhere</span></div>
   <div class="plat-grid">
 
-    <!-- Spotify: #1DB954 green -->
     <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Spotify">
       <div class="plat-icon-wrap" style="background:#1DB954;">
         <img src="https://cdn.simpleicons.org/spotify/ffffff" alt="Spotify" loading="lazy">
@@ -286,7 +292,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">Spotify</div>
     </a>
 
-    <!-- Apple Music: gradient pink/purple -->
     <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Apple Music">
       <div class="plat-icon-wrap" style="background:linear-gradient(145deg,#FC3C44,#C8278C);">
         <img src="https://cdn.simpleicons.org/applemusic/ffffff" alt="Apple Music" loading="lazy">
@@ -294,17 +299,13 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">Apple Music</div>
     </a>
 
-    <!-- Amazon Music: #232F3E dark navy -->
- <a href="https://music.amazon.com/search/jack%20chabowski" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Amazon Music">
-<div class="plat-icon-wrap" style="background:#232F3E;">
-  <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonmusic.svg" 
-       alt="Amazon Music" loading="lazy"
-       style="filter:invert(1) sepia(1) saturate(5) hue-rotate(5deg);">
-</div>
-    <div class="plat-lbl">Amazon Music</div>
-</a>
+    <a href="https://music.amazon.com/search/jack%20chabowski" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Amazon Music">
+      <div class="plat-icon-wrap" style="background:#232F3E;">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonmusic.svg" alt="Amazon Music" loading="lazy" style="filter:invert(1) sepia(1) saturate(5) hue-rotate(5deg);">
+      </div>
+      <div class="plat-lbl">Amazon Music</div>
+    </a>
 
-    <!-- YouTube: #FF0000 red -->
     <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on YouTube">
       <div class="plat-icon-wrap" style="background:#FF0000;">
         <img src="https://cdn.simpleicons.org/youtube/ffffff" alt="YouTube" loading="lazy">
@@ -312,7 +313,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">YouTube</div>
     </a>
 
-    <!-- YouTube Music: #FF0000 red, distinct icon -->
     <a href="https://music.youtube.com/search?q=jack+chabowski" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on YouTube Music">
       <div class="plat-icon-wrap" style="background:#FF0000;">
         <img src="https://cdn.simpleicons.org/youtubemusic/ffffff" alt="YouTube Music" loading="lazy">
@@ -320,7 +320,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">YouTube Music</div>
     </a>
 
-    <!-- Tidal: black, white logo -->
     <a href="https://tidal.com/search?q=jack%20chabowski" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Tidal">
       <div class="plat-icon-wrap" style="background:#000;border:1.5px solid rgba(255,255,255,.18);">
         <img src="https://cdn.simpleicons.org/tidal/ffffff" alt="Tidal" loading="lazy">
@@ -328,7 +327,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">Tidal</div>
     </a>
 
-    <!-- Deezer: #A238FF purple -->
     <a href="https://www.deezer.com/search/jack%20chabowski" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Deezer">
       <div class="plat-icon-wrap" style="background:#A238FF;">
         <img src="https://cdn.simpleicons.org/deezer/ffffff" alt="Deezer" loading="lazy">
@@ -336,7 +334,6 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
       <div class="plat-lbl">Deezer</div>
     </a>
 
-    <!-- Shazam: #0088FF blue -->
     <a href="https://www.shazam.com/artist/jack-chabowski/1211010509" target="_blank" rel="noopener noreferrer" class="plat" aria-label="Jack Chabowski on Shazam">
       <div class="plat-icon-wrap" style="background:#0088FF;">
         <img src="https://cdn.simpleicons.org/shazam/ffffff" alt="Shazam" loading="lazy">
@@ -397,18 +394,17 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 <footer>
   <div class="ft">
     <div class="ft-brand">
-      <a href="index.html" class="nav-logo" style="font-size:.9rem;" aria-label="Jack Chabowski home">Jack Chabowski</a>
+      <a href="/" class="nav-logo" style="font-size:.9rem;" aria-label="Jack Chabowski home">Jack Chabowski</a>
       <p>Music Producer &middot; Mixing Engineer &middot; Composer</p>
     </div>
-   
   </div>
   <div class="fb">
     <div class="ft-copy">&copy; <span id="yr"></span> Jack Chabowski &middot; Music Entertainment &middot; <a href="terms.html">Terms</a> &middot; <a href="privacy.html">Privacy</a></div>
- <div class="ft-links">
-  <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on Spotify">Spotify</a>
-  <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on Apple Music">Apple Music</a>
-  <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on YouTube">YouTube</a>
-</div>
+    <div class="ft-links">
+      <a href="https://open.spotify.com/artist/1uskO80RN1Ig19sfUyPuQ9" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on Spotify">Spotify</a>
+      <a href="https://music.apple.com/ca/artist/jack-chabowski/1211010509" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on Apple Music">Apple Music</a>
+      <a href="https://www.youtube.com/channel/UC8BcQItp7hOnUYNE0r2eEcQ" target="_blank" rel="noopener noreferrer" aria-label="Jack Chabowski on YouTube">YouTube</a>
+    </div>
   </div>
 </footer>
 
@@ -429,8 +425,14 @@ mob.querySelectorAll('a').forEach(function(a) {
   });
 });
 var rvEls = document.querySelectorAll('.rv');
-var obs = new IntersectionObserver(function(entries) { entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('on'); }); }, {threshold: 0.08});
-rvEls.forEach(function(el) { obs.observe(el); });
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add('on');
+  });
+}, {threshold: 0.08});
+rvEls.forEach(function(el) {
+  obs.observe(el);
+});
 </script>
 </body>
 </html>
