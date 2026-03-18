@@ -761,12 +761,12 @@
   </section>
 
   <div class="photo-row">
- <div class="video-launch" data-video="hNR2fWvz2c0" aria-label="Play video" role="button" tabindex="0">
-  <img src="/images/dance-music-production.webp" alt="Dance performance on stage">
-</div>
-<div class="video-launch" data-video="GHx84ku7pNE" aria-label="Play video" role="button" tabindex="0">
-  <img src="/images/recording-services.webp" alt="Artist recording vocals at microphone">
-</div>
+  <div class="video-launch" data-video="hNR2fWvz2c0" aria-label="Play video" role="button" tabindex="0">
+    <img src="/images/dance-music-production.webp" alt="Dance performance on stage">
+  </div>
+  <div class="video-launch" data-video="GHx84ku7pNE" aria-label="Play video" role="button" tabindex="0">
+    <img src="/images/recording-services.webp" alt="Artist recording vocals at microphone">
+  </div>
     <div>
       <img src="https://images.unsplash.com/photo-1499415479124-43c32433a620?w=600&q=80" alt="Music production equipment and studio gear">
     </div>
@@ -814,66 +814,84 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-    var ham = document.getElementById('ham'),
-        mob = document.getElementById('mob');
+  var ham = document.getElementById('ham'),
+      mob = document.getElementById('mob');
 
-    ham.addEventListener('click', function () {
-      ham.classList.toggle('open');
-      mob.classList.toggle('open');
-      ham.setAttribute('aria-expanded', ham.classList.contains('open') ? 'true' : 'false');
+  ham.addEventListener('click', function () {
+    ham.classList.toggle('open');
+    mob.classList.toggle('open');
+    ham.setAttribute('aria-expanded', ham.classList.contains('open') ? 'true' : 'false');
+  });
+
+  mob.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      ham.classList.remove('open');
+      mob.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
     });
+  });
 
-    mob.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        ham.classList.remove('open');
-        mob.classList.remove('open');
-        ham.setAttribute('aria-expanded', 'false');
-      });
+  var rvEls = document.querySelectorAll('.rv');
+
+  var obs = new IntersectionObserver(function (e) {
+    e.forEach(function (x) {
+      if (x.isIntersecting) x.target.classList.add('on');
     });
+  }, { threshold: 0.08 });
 
-    var rvEls = document.querySelectorAll('.rv');
+  rvEls.forEach(function (el) {
+    obs.observe(el);
+  });
 
-    var obs = new IntersectionObserver(function (e) {
-      e.forEach(function (x) {
-        if (x.isIntersecting) x.target.classList.add('on');
-      });
-    }, { threshold: 0.08 });
+  var videoLaunchers = document.querySelectorAll('.video-launch');
 
-    rvEls.forEach(function (el) {
-      obs.observe(el);
-    });
+  videoLaunchers.forEach(function (el) {
+    el.setAttribute('data-original', el.innerHTML);
+  });
 
-        document.querySelectorAll('.video-launch').forEach(function (el) {
-      var loaded = false;
+  function resetVideoLauncher(el) {
+    el.innerHTML = el.getAttribute('data-original');
+    el.classList.remove('playing');
+  }
 
-      function loadVideo() {
-        if (loaded) return;
-        loaded = true;
-
-        var videoId = el.getAttribute('data-video');
-
-        el.innerHTML = `
-          <iframe
-            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
-            title="Jack Chabowski YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        `;
+  function loadVideo(el) {
+    videoLaunchers.forEach(function (other) {
+      if (other !== el && other.classList.contains('playing')) {
+        resetVideoLauncher(other);
       }
-
-      el.addEventListener('click', loadVideo);
-
-      el.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          loadVideo();
-        }
-      });
     });
-  </script>
+
+    if (el.classList.contains('playing')) return;
+
+    var videoId = el.getAttribute('data-video');
+
+    el.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+        title="Jack Chabowski YouTube video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    `;
+
+    el.classList.add('playing');
+  }
+
+  videoLaunchers.forEach(function (el) {
+    el.addEventListener('click', function () {
+      loadVideo(el);
+    });
+
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        loadVideo(el);
+      }
+    });
+  });
+</script>
 </body>
 </html>
