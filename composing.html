@@ -107,8 +107,6 @@
     .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;margin-left:auto;}
     .nav-links a{font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:rgba(255,255,255,.5);text-decoration:none;transition:color .18s;}
     .nav-links a:hover,.nav-links a.active{color:#fff;}
-    .nav-cta{margin-left:2.2rem;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--red);text-decoration:none;border:1px solid rgba(232,50,42,.5);padding:.5rem 1.2rem;transition:all .18s;flex-shrink:0;}
-    .nav-cta:hover{background:var(--red);color:#fff;}
 
     .ham{display:flex;flex-direction:column;justify-content:center;gap:6px;width:44px;height:44px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0;margin-left:auto;}
     .ham span{display:block;width:26px;height:2px;background:#fff;border-radius:2px;transition:transform .28s ease,opacity .2s ease;transform-origin:center;}
@@ -183,7 +181,7 @@
     .cta-b1:hover{background:var(--bg);color:#fff;}
 @media(max-width:860px){
   nav{padding:0 1.2rem;}
-  .nav-links,.nav-cta{display:none;}
+  .nav-links{display:none;}
   .pg-hero{padding-left:1.2rem;padding-right:1.2rem;padding-bottom:3rem;}
   .genre-pane.active{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
@@ -213,11 +211,11 @@
     <a href="/" class="nav-logo" aria-label="Jack Chabowski home">Jack Chabowski</a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
       <li><a href="production.html">Production</a></li>
       <li><a href="composing.html" class="active" aria-current="page">Composing</a></li>
     </ul>
-    <a href="mailto:jackchabowski@gmail.com" class="nav-cta" aria-label="Contact Jack Chabowski by email">Contact</a>
     <button class="ham" id="ham" aria-label="Open menu" aria-controls="mob" aria-expanded="false" type="button">
       <span class="bar1"></span><span class="bar2"></span><span class="bar3"></span>
     </button>
@@ -225,10 +223,10 @@
 
   <div class="mob" id="mob" aria-label="Mobile navigation">
     <a href="/">Home</a>
+    <a href="about.html">About</a>
     <a href="mixing-mastering.html">Mixing / Mastering</a>
     <a href="production.html">Production</a>
     <a href="composing.html" class="active" aria-current="page">Composing</a>
-    <a href="mailto:jackchabowski@gmail.com" aria-label="Contact Jack Chabowski by email">Contact</a>
   </div>
 
   <section class="pg-hero">
