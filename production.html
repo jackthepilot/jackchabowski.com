@@ -181,25 +181,6 @@
       color: #fff;
     }
 
-    .nav-cta {
-      margin-left: 2.2rem;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--red);
-      text-decoration: none;
-      border: 1px solid rgba(232,50,42,.5);
-      padding: .5rem 1.2rem;
-      transition: all .18s;
-      flex-shrink: 0;
-    }
-
-    .nav-cta:hover {
-      background: var(--red);
-      color: #fff;
-    }
-
     .ham {
       display: flex;
       flex-direction: column;
@@ -621,8 +602,7 @@
     padding: 0 1.2rem;
   }
 
-  .nav-links,
-  .nav-cta {
+  .nav-links {
     display: none;
   }
 
@@ -697,11 +677,11 @@
     <a href="/" class="nav-logo" aria-label="Jack Chabowski home">Jack Chabowski</a>
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
+      <li><a href="about.html">About</a></li>
       <li><a href="mixing-mastering.html">Mixing / Mastering</a></li>
       <li><a href="production.html" class="active" aria-current="page">Production</a></li>
       <li><a href="composing.html">Composing</a></li>
     </ul>
-    <a href="mailto:jackchabowski@gmail.com" class="nav-cta" aria-label="Contact Jack Chabowski by email">Contact</a>
     <button class="ham" id="ham" aria-label="Open menu" aria-controls="mob" aria-expanded="false" type="button">
       <span class="bar1"></span>
       <span class="bar2"></span>
@@ -711,10 +691,10 @@
 
   <div class="mob" id="mob" aria-label="Mobile navigation">
     <a href="/">Home</a>
+    <a href="about.html">About</a>
     <a href="mixing-mastering.html">Mixing / Mastering</a>
     <a href="production.html" class="active" aria-current="page">Production</a>
     <a href="composing.html">Composing</a>
-    <a href="mailto:jackchabowski@gmail.com" aria-label="Contact Jack Chabowski by email">Contact</a>
   </div>
 
   <section class="pg-hero">
