@@ -136,9 +136,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;ali
 .sec-title{font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;color:#fff;margin-bottom:2.5rem;}
 .sec-title span{color:var(--red);}
 
-.intro-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;}
+.intro-float-wrap{position:relative;}
+.intro-float-wrap::after{content:'';display:table;clear:both;}
+.intro-float-wrap p{font-size:.92rem;line-height:1.85;color:var(--muted);margin-bottom:1.05rem;}
+
+.intro-float-photo{float:right;width:260px;margin:4px 0 2rem 2.5rem;position:relative;flex-shrink:0;}
+.intro-float-photo::before{content:'';position:absolute;top:12px;right:-12px;bottom:-12px;left:12px;border:1px solid rgba(232,50,42,.3);z-index:0;pointer-events:none;}
+.intro-float-photo img{position:relative;z-index:1;width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:brightness(.65) saturate(.6);}
+
+.tag-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem;clear:both;}
+
+@media(max-width:640px){
+  .intro-float-photo{float:none;width:100%;max-width:320px;margin:0 auto 2rem;}
+  .intro-float-photo::before{display:none;}
+}
+  
 .intro-copy p{font-size:.92rem;line-height:1.85;color:var(--muted);margin-bottom:1.05rem;}
-.intro-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:brightness(.62) saturate(.6);}
 .tag-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem;}
 .tag{display:inline-flex;align-items:center;border:1px solid var(--border);padding:.42rem .85rem;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
 
@@ -251,24 +264,22 @@ footer{background:var(--s1);padding:2.5rem 2.5rem 1.5rem;border-top:1px solid va
 </section>
 
 <section class="sec rv">
-  <div class="intro-layout">
-    <div class="intro-copy">
-      <div class="eyebrow">The Artist</div>
-      <div class="sec-title">More than a sound,<br><span>a signature.</span></div>
-      <p>Jack Chabowski creates music with a sharp ear for impact and a deep instinct for emotion. His work lives where technical polish meets artistic identity, where every kick, chord, texture, and transition is shaped with intention.</p>
-      <p>From EDM and electronic productions to pop records, cinematic arrangements, and orchestral-inspired storytelling, Jack moves across genres without losing his fingerprint. The goal is never just to make something sound good. The goal is to make it feel unforgettable.</p>
-      <p>Whether the project demands club energy, radio-ready clarity, or a more dramatic and atmospheric world, Jack approaches every song with the same obsession, detail, taste, and drive to make it land.</p>
-      <div class="tag-row">
-        <span class="tag">EDM</span>
-        <span class="tag">Electronic</span>
-        <span class="tag">Pop</span>
-        <span class="tag">Dance</span>
-        <span class="tag">Orchestral</span>
-        <span class="tag">Cinematic</span>
-      </div>
-    </div>
-    <div class="intro-photo rv">
+  <div class="eyebrow">About Me</div>
+  <div class="sec-title">More than a sound,<br><span>a signature.</span></div>
+  <div class="intro-float-wrap">
+    <div class="intro-float-photo rv">
       <img src="/images/about-jack-recording-studio.webp" alt="Jack Chabowski studio portrait" loading="lazy" decoding="async">
+    </div>
+    <p>Jack Chabowski creates music with a sharp ear for impact and a deep instinct for emotion. His work lives where technical polish meets artistic identity, where every kick, chord, texture, and transition is shaped with intention.</p>
+    <p>From EDM and electronic productions to pop records, cinematic arrangements, and orchestral-inspired storytelling, Jack moves across genres without losing his fingerprint. The goal is never just to make something sound good. The goal is to make it feel unforgettable.</p>
+    <p>Whether the project demands club energy, radio-ready clarity, or a more dramatic and atmospheric world, Jack approaches every song with the same obsession, detail, taste, and drive to make it land.</p>
+    <div class="tag-row">
+      <span class="tag">EDM</span>
+      <span class="tag">Electronic</span>
+      <span class="tag">Pop</span>
+      <span class="tag">Dance</span>
+      <span class="tag">Orchestral</span>
+      <span class="tag">Cinematic</span>
     </div>
   </div>
 </section>
